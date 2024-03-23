@@ -1,0 +1,74 @@
+
+= AP APB control =[apapb]
+
+|| Base address ||
+| 0x71300000 |
+
+== Registers ==[apapb_regs]
+
+|| Symbol | Offset | Description ||
+| [APB_EB #apapb_regs_apb_eb] | 0x0000 | APB enable bits |
+| [APB_RST #apapb_regs_apb_rst] | 0x0004 | APB reset bits |
+| [APB_MISC_CTRL #apapb_regs_misc_ctrl] | 0x0008 | APB misc control bits |
+
+
+=== APB_EB (0x71300000) ===[apapb_regs_apb_eb]
+
+|| Symbol | Bit range | R/W | Description ||
+| INTC3_EB | 22 | RW |  |
+| INTC2_EB | 21 | RW |  |
+| INTC1_EB | 20 | RW |  |
+| INTC0_EB | 19 | RW |  |
+| AP_CKG_EB | 18 | RW |  |
+| UART4_EB | 17 | RW |  |
+| UART3_EB | 16 | RW |  |
+| UART2_EB | 15 | RW |  |
+| UART1_EB | 14 | RW |  |
+| UART0_EB | 13 | RW |  |
+| I2C4_EB | 12 | RW |  |
+| I2C3_EB | 11 | RW |  |
+| I2C2_EB | 10 | RW |  |
+| I2C1_EB | 9 | RW |  |
+| I2C0_EB | 8 | RW |  |
+| SPI2_EB | 7 | RW |  |
+| SPI1_EB | 6 | RW |  |
+| SPI0_EB | 5 | RW |  |
+| IIS3_EB | 4 | RW |  |
+| IIS2_EB | 3 | RW |  |
+| IIS1_EB | 2 | RW |  |
+| IIS0_EB | 1 | RW |  |
+| SIM0_EB | 0 | RW |  |
+
+=== APB_RST (0x71300004) ===[apapb_regs_apb_rst]
+
+|| Symbol | Bit range | R/W | Description ||
+| INTC3_RST | 22 | RW |  |
+| INTC2_RST | 21 | RW |  |
+| INTC1_RST | 20 | RW |  |
+| INTC0_RST | 19 | RW |  |
+| AP_CKG_RST | 18 | RW |  |
+| UART4_RST | 17 | RW |  |
+| UART3_RST | 16 | RW |  |
+| UART2_RST | 15 | RW |  |
+| UART1_RST | 14 | RW |  |
+| UART0_RST | 13 | RW |  |
+| I2C4_RST | 12 | RW |  |
+| I2C3_RST | 11 | RW |  |
+| I2C2_RST | 10 | RW |  |
+| I2C1_RST | 9 | RW |  |
+| I2C0_RST | 8 | RW |  |
+| SPI2_RST | 7 | RW |  |
+| SPI1_RST | 6 | RW |  |
+| SPI0_RST | 5 | RW |  |
+| IIS3_RST | 4 | RW |  |
+| IIS2_RST | 3 | RW |  |
+| IIS1_RST | 2 | RW |  |
+| IIS0_RST | 1 | RW |  |
+| SIM0_RST | 0 | RW |  |
+
+=== APB_MISC_CTRL (0x71300008) ===[apapb_regs_apb_misc_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| SIM_CLK_POLARITY | 1 | RW |  |
+| FMARK_POLARITY_INV | 0 | RW |  |
+

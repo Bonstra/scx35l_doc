@@ -1,0 +1,36 @@
+
+= SYSCNT =[syscnt]
+
+|| Base address ||
+| 0x40230000 |
+
+== Registers ==[syscnt_regs]
+
+|| Symbol | Offset | Description ||
+| [ALARM #syscnt_regs_alarm] | 0x0000 |  |
+| [COUNT #syscnt_regs_count] | 0x0004 |  |
+| [CTL #syscnt_regs_ctl] | 0x0008 |  |
+| [SHADOW_CNT #syscnt_regs_shadow_cnt] | 0x000c |  |
+
+=== ALARM (0x40230000) ===[syscnt_regs_alarm]
+
+|| Symbol | Bit range | R/W | Description ||
+| ALARM | 31-0 | RW | Alarm counter value |
+
+=== COUNT (0x40230004) ===[syscnt_regs_count]
+
+|| Symbol | Bit range | R/W | Description ||
+| COUNT | 31-0 | RW? |  |
+
+=== CTL (0x40230008) ===[syscnt_regs_ctl]
+
+|| Symbol | Bit range | R/W | Description ||
+| INT_ACK | 8 | RW? | Write 1 to acknowledge alarm interrupt |
+| ALARM_ENABLE | 0 | RW? | 0=alarm interrupt disabled 1=alarm interrupt enabled |
+
+=== SHADOW_CNT (0x4023000c) ===[syscnt_regs_shadow_cnt]
+
+|| Symbol | Bit range | R/W | Description ||
+| COUNT | 31-0 | RW? | Count value |
+
+

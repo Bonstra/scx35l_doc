@@ -1,0 +1,67 @@
+
+= UART =[uart]
+
+|| Instance | Base address ||
+| UART0 | 0x70000000 |
+| UART1 | 0x70100000 |
+| UART2 | 0x70200000 |
+| UART3 | 0x70300000 |
+| UART4 | 0x70400000 |
+
+Guessed Tx and Rx FIFO depth: 0x40 bytes
+
+== Registers ==[uart_regs]
+
+|| Symbol | Offset | Description ||
+| [TXD #uart_regs_txd] | 0x00 | Tx data |
+| [RXD #uart_regs_rxd] | 0x04 | Rx data |
+| [STS0 #uart_regs_sts0] | 0x08 | Status 0 |
+| [STS1 #uart_regs_sts1] | 0x0c | Status 1 |
+| [IEN #uart_regs_ien] | 0x10 | Interrupt enable |
+| [ICLR #uart_regs_iclr] | 0x14 | Interrupt clear |
+| [CTL0 #uart_regs_ctl0] | 0x18 | Control 0 |
+| [CTL1 #uart_regs_ctl1] | 0x1c | Control 1 |
+| [CTL2 #uart_regs_ctl2] | 0x20 | Control 2 |
+| [CLKD0 #uart_regs_clkd0] | 0x24 | Clock divider 0 |
+| [CLKD1 #uart_regs_clkd1] | 0x28 | Clock divider 1 |
+| [STS2 #uart_regs_sts2] | 0x2c | Status 2 |
+
+
+=== TXD (0x00) ===[uart_regs_txd]
+
+Tx data register.
+
+|| Symbol | Bit range | R/W | Description ||
+| DATA | 7-0 | W | Data byte to send |
+
+
+=== RXD (0x04) ===[uart_regs_rxd]
+
+Rx data register.
+
+|| Symbol | Bit range | R/W | Description ||
+| DATA | 7-0 | W | Data byte received |
+
+
+=== STS0 (0x08) ===[uart_regs_sts0]
+
+Line status register.
+
+|| Symbol | Bit range | R/W | Description ||
+
+
+=== STS1 (0x0c) ===[uart_regs_sts1]
+
+FIFO status register.
+
+|| Symbol | Bit range | R/W | Description ||
+| TX_LEVEL | 15-8 | R | Number of bytes in Tx FIFO |
+| RX_LEVEL | 7-0 | R | Number of bytes in Rx FIFO |
+
+=== IEN (0x10) ===[uart_regs_ien]
+
+Interrupt enable register.
+
+|| Symbol | Bit range | R/W | Description ||
+
+

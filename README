@@ -1,0 +1,20 @@
+This document is an effort to document the SC9830I SoC from the SharkLS SCX35L
+family from Spreadtrum.
+
+The information in this document comes only from public sources, such as the
+GPL'd source code, datasheets from other chips using the same IP blocks, and
+experimentation on real hardware.
+
+The document is written in the txt2tags format (https://txt2tags.org/). You
+can build the HTML version by installing txt2tags and running:
+
+$ txt2tags scx35l_doc.t2t
+
+This will generate the scx35l_doc.html file.
+
+If you also have GNU make installed, you can also simply run:
+
+$ make
+
+It will re-generate the c2000doc.html file only if one of the .t2t files has
+changed since the HTML was generated.

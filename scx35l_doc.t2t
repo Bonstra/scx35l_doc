@@ -1,0 +1,36 @@
+Spreadtrum SCX35L (unofficial) documentation
+Hugo "Bonstra" Grostabussiat
+2024-03-23
+%!target:html
+%!encoding:UTF-8
+%!options(html):--toc --enum-title
+
+= About this document =
+
+This document is an effort to document the SC9830I SoC from the SharkLS SCX35L
+family from Spreadtrum.
+
+The SC9830I contains 2 dies. The digital die, or d-die, and the analog one,
+or a-die.
+The analog die in this SoC is a SC2723.
+
+The information in this document comes only from public sources, such as GPL'd
+source code, datasheets from other chips using the same IP blocks, and
+experimentation on real hardware.
+
+Be aware that because of this, this document **potentially contains a lot of imprecise, if not downright incorrect information.**
+
+%!include:memmap.t2t
+
+%!include:apahb.t2t
+%!include:pubapb.t2t
+%!include:ana_efuse.t2t
+%!include:syscnt.t2t
+%!include:efuse.t2t
+%!include:keypad.t2t
+%!include:pmu.t2t
+%!include:aonapb.t2t
+%!include:uart.t2t
+%!include:apapb.t2t
+%!include:intc.t2t
+

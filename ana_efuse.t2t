@@ -1,0 +1,66 @@
+
+= ANA_EFUSE =[ana_efuse]
+
+eFuse OTP memory on analog die (ADIE).
+
+|| Base address ||
+| 0x40380200 |
+
+== Registers ==[ana_efuse_regs]
+
+|| Symbol | Offset | Description ||
+| [GLB_CTRL #ana_efuse_regs_glb_ctrl] | 0x0000 | Global control register |
+| [DATA_RD #ana_efuse_regs_data_rd] | 0x0004 | Data read register |
+| [DATA_WR #ana_efuse_regs_data_wr] | 0x0008 | Data write register |
+| [BLOCK_INDEX #ana_efuse_regs_block_index] | 0x000c | eFuse block index register |
+| [MODE_CTRL #ana_efuse_regs_mode_ctrl] | 0x0010 | eFuse operation mode |
+| [STATUS #ana_efuse_regs_status] | 0x0014 | Status register |
+| [WR_TIMING_CTRL #ana_efuse_regs_wr_timing_ctrl] | 0x0028 | Write timings register |
+| [RD_TIMING_CTRL #ana_efuse_regs_rd_timing_ctrl] | 0x002c | Read timings register |
+| [EFUSE_DEB_CTRL #ana_efuse_regs_efuse_deb_ctrl] | 0x0030 | eFuse debug register |
+
+=== GLB_CTRL (0x40380200) ===[ana_efuse_regs_glb_ctrl]
+
+Global control register
+
+|| Symbol | Bit range | R/W | Description ||
+| EFUSE_TYPE | 2-1 | RW | Efuse type select, 00:TSMC, 01, 1x reserved. |
+| EFUSE_PGM_EN | 0 | RW | Efuse SW programme enable. |
+
+=== DATA_RD (0x40380204) ===[ana_efuse_regs_data_rd]
+|| Symbol | Bit range | R/W | Description ||
+| EFUSE_DATA_RD | 7-0 | RW | Data byte read from eFuse block |
+
+=== DATA_WR (0x40380208) ===[ana_efuse_regs_data_wr]
+|| Symbol | Bit range | R/W | Description ||
+| EFUSE_DATA_WR | 7-0 | RW | Data byte to write to eFuse block when programming is enabled |
+
+=== BLOCK_INDEX (0x4038020c) ===[ana_efuse_regs_block_index]
+|| Symbol | Bit range | R/W | Description ||
+| READ_WRITE_INDEX | 4-0 | RW | Index of eFuse block |
+
+=== MODE_CTRL (0x40380210) ===[ana_efuse_regs_mode_ctrl]
+|| Symbol | Bit range | R/W | Description ||
+| STANDBY_START | 2 | W | Enter standby mode |
+| RD_START | 1 | W | Enter read mode |
+| PG_MODE | 0 | W | Write 1 to this bit start A_PGM mode(array PGM mode). This bit is self-clear, read this bit will always get 0. |
+
+=== STATUS (0x40380214) ===[ana_efuse_regs_status]
+|| Symbol | Bit range | R/W | Description ||
+| STANDBY_BUSY | 2 | R |  |
+| READ_BUSY | 1 | R |  |
+| PGM_BUSY | 0 | R |  |
+
+=== WR_TIMING (0x40380228) ===[ana_efuse_regs_wr_timing]
+|| Symbol | Bit range | R/W | Description ||
+| EFUSE_WR_TIMING | 13-0 | RW |  |
+
+=== RD_TIMING (0x4038022c) ===[ana_efuse_regs_rd_timing]
+|| Symbol | Bit range | R/W | Description ||
+| EFUSE_RD_TIMING | 9-0 | RW |  |
+
+=== EFUSE_DEB_CTRL (0x40380230) ===[ana_efuse_regs_efuse_deb_ctrl]
+|| Symbol | Bit range | R/W | Description ||
+| MARGIN_MODE_EN | 1 | RW |  |
+| DOUBLE_BIT_DISABLE | 0 | RW | Disable double bit redundency? |
+

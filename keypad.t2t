@@ -1,0 +1,157 @@
+
+= Keypad =[keypad]
+
+|| Instance | Base address ||
+| Keypad | 0x40250000 |
+
+== Registers ==[keypad_regs]
+
+|| Symbol | Offset | Description ||
+| [CTRL #keypad_regs_ctrl] | 0x00 |  |
+| [INT_EN #keypad_regs_int_en] | 0x04 |  |
+| [INT_RAW_STATUS #keypad_regs_int_raw_status] | 0x08 |  |
+| [INT_MASK_STATUS #keypad_regs_int_mask_status] | 0x0c |  |
+| [INT_CLR #keypad_regs_int_clr] | 0x10 |  |
+| [POLARITY #keypad_regs_polarity] | 0x18 |  |
+| [DEBOUNCE_CNT #keypad_regs_debounce_cnt] | 0x1c |  |
+| [LONG_KEY_CNT #keypad_regs_long_key_cnt] | 0x20 |  |
+| [SLEEP_CNT #keypad_regs_sleep_cnt] | 0x24 |  |
+| [CLK_DIV_CNT #keypad_regs_clk_div_cnt] | 0x28 |  |
+| [KEY_STATUS #keypad_regs_key_status] | 0x2c |  |
+| [SLEEP_STATUS #keypad_regs_sleep_status] | 0x30 |  |
+| [DEBUG_STATUS1 #keypad_regs_debug_status1] | 0x34 |  |
+| [DEBUG_STATUS2 #keypad_regs_debug_status2] | 0x38 |  |
+
+
+=== CTRL (0x40250000) ===[keypad_regs_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| ROW_MSK | 23-16 | RW | Enable rows 0 - 7 |
+| COL_MSK | 15-8 | RW | Enable cols 0 - 7 |
+| LONG_KEY_EN | 2 | RW |  |
+| SLEEP_EN | 1 | RW |  |
+| EN | 0 | RW |  |
+
+=== INT_EN (0x40250004) ===[keypad_regs_int_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| LONG_KEY_INT3 | 11 | RW |  |
+| LONG_KEY_INT2 | 10 | RW |  |
+| LONG_KEY_INT1 | 9 | RW |  |
+| LONG_KEY_INT0 | 8 | RW |  |
+| RELEASE_INT3 | 7 | RW |  |
+| RELEASE_INT2 | 6 | RW |  |
+| RELEASE_INT1 | 5 | RW |  |
+| RELEASE_INT0 | 4 | RW |  |
+| PRESS_INT3 | 3 | RW |  |
+| PRESS_INT2 | 2 | RW |  |
+| PRESS_INT1 | 1 | RW |  |
+| PRESS_INT0 | 0 | RW |  |
+
+=== INT_RAW_STATUS (0x40250008) ===[keypad_regs_int_raw_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| LONG_KEY_INT3 | 11 | R |  |
+| LONG_KEY_INT2 | 10 | R |  |
+| LONG_KEY_INT1 | 9 | R |  |
+| LONG_KEY_INT0 | 8 | R |  |
+| RELEASE_INT3 | 7 | R |  |
+| RELEASE_INT2 | 6 | R |  |
+| RELEASE_INT1 | 5 | R |  |
+| RELEASE_INT0 | 4 | R |  |
+| PRESS_INT3 | 3 | R |  |
+| PRESS_INT2 | 2 | R |  |
+| PRESS_INT1 | 1 | R |  |
+| PRESS_INT0 | 0 | R |  |
+
+=== INT_MASK_STATUS (0x4025000c) ===[keypad_regs_int_mask_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| LONG_KEY_INT3 | 11 | R |  |
+| LONG_KEY_INT2 | 10 | R |  |
+| LONG_KEY_INT1 | 9 | R |  |
+| LONG_KEY_INT0 | 8 | R |  |
+| RELEASE_INT3 | 7 | R |  |
+| RELEASE_INT2 | 6 | R |  |
+| RELEASE_INT1 | 5 | R |  |
+| RELEASE_INT0 | 4 | R |  |
+| PRESS_INT3 | 3 | R |  |
+| PRESS_INT2 | 2 | R |  |
+| PRESS_INT1 | 1 | R |  |
+| PRESS_INT0 | 0 | R |  |
+
+=== INT_CLR (0x40250010) ===[keypad_regs_int_clr]
+
+|| Symbol | Bit range | R/W | Description ||
+| LONG_KEY_INT3 | 11 | RW |  |
+| LONG_KEY_INT2 | 10 | RW |  |
+| LONG_KEY_INT1 | 9 | RW |  |
+| LONG_KEY_INT0 | 8 | RW |  |
+| RELEASE_INT3 | 7 | RW |  |
+| RELEASE_INT2 | 6 | RW |  |
+| RELEASE_INT1 | 5 | RW |  |
+| RELEASE_INT0 | 4 | RW |  |
+| PRESS_INT3 | 3 | RW |  |
+| PRESS_INT2 | 2 | RW |  |
+| PRESS_INT1 | 1 | RW |  |
+| PRESS_INT0 | 0 | RW |  |
+
+=== POLARITY (0x40250018) ===[keypad_regs_polarity]
+
+|| Symbol | Bit range | R/W | Description ||
+| CFG_COL_POLARITY | 31-16 | RW |  |
+| CFG_ROW_POLARITY | 15-0 | RW |  |
+
+=== DEBOUNCE_CNT (0x4025001c) ===[keypad_regs_debounce_cnt]
+
+|| Symbol | Bit range | R/W | Description ||
+| DEBOUNCE_CNT | ? | RW |  |
+
+=== LONG_KEY_CNT (0x40250020) ===[keypad_regs_long_key_cnt]
+
+|| Symbol | Bit range | R/W | Description ||
+| LONG_KEY_CNT | ? | RW |  |
+
+=== SLEEP_CNT (0x40250024) ===[keypad_regs_sleep_cnt]
+
+From X ms to SLEEP_CNT value (with CLK_DIV_CNT = 1): (X * 32.768 - 1)
+
+|| Symbol | Bit range | R/W | Description ||
+| SLEEP_CNT | ? | RW |  |
+
+=== CLK_DIV_CNT (0x40250028) ===[keypad_regs_clk_div_cnt]
+
+|| Symbol | Bit range | R/W | Description ||
+| CLK_DIV_CNT | ? | RW |  |
+
+=== KEY_STATUS (0x4025002c) ===[keypad_regs_key_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| INT3_DOWN | 31 | RW |  |
+| INT3_ROW | 30-28 | RW |  |
+| INT3_COL | 26-24 | RW |  |
+| INT2_DOWN | 23 | RW |  |
+| INT2_ROW | 22-20 | RW |  |
+| INT2_COL | 18-16 | RW |  |
+| INT1_DOWN | 15 | RW |  |
+| INT1_ROW | 14-12 | RW |  |
+| INT1_COL | 10-8 | RW |  |
+| INT0_DOWN | 7 | RW |  |
+| INT0_ROW | 6-4 | RW |  |
+| INT0_COL | 2-0 | RW |  |
+
+=== SLEEP_STATUS (0x40250030) ===[keypad_regs_sleep_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| SLEEP_STATUS | ? | R |  |
+
+=== DEBUG_STATUS1 (0x40250034) ===[keypad_regs_debug_status1]
+
+|| Symbol | Bit range | R/W | Description ||
+| DEBUG_STATUS1 | ? | R |  |
+
+=== DEBUG_STATUS2 (0x40250038) ===[keypad_regs_debug_status2]
+
+|| Symbol | Bit range | R/W | Description ||
+| DEBUG_STATUS2 | ? | R |  |
+

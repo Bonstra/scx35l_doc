@@ -1,0 +1,194 @@
+
+= INTC =[intc]
+
+|| Instance | Base address ||
+| INTC0 | 0x71400000 |
+| INTC1 | 0x71500000 |
+| INTC2 | 0x71600000 |
+| INTC3 | 0x71700000 |
+
+|| Interrupt index | Interrupt name | INTC chip | INTC bit | IRQ MUX bit ||
+| 0 | SPECIAL_LATCH | INTC0 | 0 | N/A |
+| 1 | SOFT_TRIGGERED0_INT | INTC0 | 1 | N/A |
+| 2 | SER0_INT | INTC0 | 2 | N/A |
+| 3 | SER1_INT | INTC0 | 3 | N/A |
+| 4 | SER2_INT | INTC0 | 4 | N/A |
+| 5 | SER3_INT | INTC0 | 5 | N/A |
+| 6 | SER4_INT | INTC0 | 6 | N/A |
+| 7 | SPI0_INT | INTC0 | 7 | N/A |
+| 8 | SPI1_INT | INTC0 | 8 | N/A |
+| 9 | SPI2_INT | INTC0 | 9 | N/A |
+| 10 | SIM0_INT | INTC0 | 10 | N/A |
+| 11 | I2C0_INT | INTC0 | 11 | N/A |
+| 12 | I2C1_INT | INTC0 | 12 | N/A |
+| 13 | I2C2_INT | INTC0 | 13 | N/A |
+| 14 | I2C3_INT | INTC0 | 14 | N/A |
+| 15 | I2C4_INT | INTC0 | 15 | N/A |
+| 16 | IIS0_INT | INTC0 | 16 | N/A |
+| 17 | IIS1_INT | INTC0 | 17 | N/A |
+| 18 | IIS2_INT | INTC0 | 18 | N/A |
+| 19 | IIS3_INT | INTC0 | 19 | N/A |
+| 20 | REQ_AUD_INT | INTC0 | 20 | 4 |
+| 21 | REQ_AUD_VBC_AFIFO_INT | INTC0 | 21 | 3 |
+| 22 | REQ_AUD_VBC_DA_INT | INTC0 | 22 | 3 |
+| 23 | REQ_AUD_VBC_AD01_INT | INTC0 | 23 | 3 |
+| 24 | REQ_AUD_VBC_AD23_INT | INTC0 | 24 | 3 |
+| 25 | ADI_INT | INTC0 | 25 | 4 |
+| 26 | THM_INT | INTC0 | 26 | 9 |
+| 27 | FM_INT | INTC0 | 27 | N/A |
+| 28 | AONTMR0_INT | INTC0 | 28 | 2 |
+| 29 | APTMR0_INT | INTC0 | 29 | 2 |
+| 30 | AONSYST_INT | INTC0 | 30 | 2 |
+| 31 | APSYST_INT | INTC0 | 31 | 2 |
+| 32 | N/A | N/A | N/A | N/A |
+| 33 | N/A | N/A | N/A | N/A |
+| 34 | AONI2C_INT | INTC1 | 2 | 4 |
+| 35 | GPIO_INT | INTC1 | 3 | 4 |
+| 36 | KPD_INT | INTC1 | 4 | 4 |
+| 37 | EIC_INT | INTC1 | 5 | 31 |
+| 38 | ANA_INT | INTC1 | 6 | 4 |
+| 39 | GPU_INT | INTC1 | 7 | 6 |
+| 40 | CSI_INT0 | INTC1 | 8 | 5 |
+| 41 | CSI_INT1 | INTC1 | 9 | 5 |
+| 42 | JPG_INT | INTC1 | 10 | 5 |
+| 43 | VSP_INT | INTC1 | 11 | 5 |
+| 44 | ISP_INT | INTC1 | 12 | 5 |
+| 45 | DCAM_INT | INTC1 | 13 | 5 |
+| 46 | DISPC0_INT | INTC1 | 14 | N/A |
+| 47 | DISPC1_INT | INTC1 | 15 | N/A |
+| 48 | DSI0_INT | INTC1 | 16 | N/A |
+| 49 | DSI1_INT | INTC1 | 17 | N/A |
+| 50 | DMA_INT | INTC1 | 18 | N/A |
+| 51 | GSP_INT | INTC1 | 19 | N/A |
+| 52 | GPS_INT | INTC1 | 20 | N/A |
+| 53 | GPS_RTCEXP_INT | INTC1 | 21 | N/A |
+| 54 | GPS_WAKEUP_INT | INTC1 | 22 | N/A |
+| 55 | USBD_INT | INTC1 | 23 | N/A |
+| 56 | NFC_INT | INTC1 | 24 | N/A |
+| 57 | SDIO0_INT | INTC1 | 25 | N/A |
+| 58 | SDIO1_INT | INTC1 | 26 | N/A |
+| 59 | SDIO2_INT | INTC1 | 27 | N/A |
+| 60 | EMMC_INT | INTC1 | 28 | N/A |
+| 61 | BM0_INT | INTC1 | 29 | N/A |
+| 62 | BM1_INT | INTC1 | 30 | N/A |
+| 63 | BM2_INT | INTC1 | 31 | N/A |
+| 64 | N/A | N/A | N/A | N/A |
+| 65 | N/A | N/A | N/A | N/A |
+| 66 | DRM_INT | INTC2 | 2 | N/A |
+| 67 | CP0_DSP_INT | INTC2 | 3 | N/A |
+| 68 | CP0_MCU0_INT | INTC2 | 4 | N/A |
+| 69 | CP0_MCU1_INT | INTC2 | 5 | 12 |
+| 70 | CP1_DSP_INT | INTC2 | 6 | N/A |
+| 71 | CP1_MCU0_INT | INTC2 | 7 | N/A |
+| 72 | CP1_MCU1_INT | INTC2 | 8 | N/A |
+| 73 | CP2_INT0_INT | INTC2 | 9 | N/A |
+| 74 | CP2_INT1_INT | INTC2 | 10 | N/A |
+| 75 | CP0_DSP_FIQ_INT | INTC2 | 11 | N/A |
+| 76 | CP0_MCU_FIQ0_INT | INTC2 | 12 | N/A |
+| 77 | CP0_MCU_FIQ1_INT | INTC2 | 13 | N/A |
+| 78 | CP1_MCU_FIQ_INT | INTC2 | 14 | N/A |
+| 79 | N/A | N/A | N/A | N/A |
+| 80 | N/A | N/A | N/A | N/A |
+| 81 | N/A | N/A | N/A | N/A |
+| 82 | N/A | N/A | N/A | N/A |
+| 83 | CP0_WDG_INT | INTC2 | 19 | 7 |
+| 84 | CP1_WDG_INT | INTC2 | 20 | 7 |
+| 85 | CP2_WDG_INT | INTC2 | 21 | N/A |
+| 86 | AXI_BM_PUB_INT | INTC2 | 22 | 10 |
+| 87 | N/A | N/A | N/A | N/A |
+| 88 | N/A | N/A | N/A | N/A |
+| 89 | N/A | N/A | N/A | N/A |
+| 90 | N/A | N/A | N/A | N/A |
+| 91 | N/A | N/A | N/A | N/A |
+| 92 | NPMUIRQ0_INT | INTC2 | 28 | N/A |
+| 93 | NPMUIRQ1_INT | INTC2 | 29 | N/A |
+| 94 | NPMUIRQ2_INT | INTC2 | 30 | N/A |
+| 95 | NPMUIRQ3_INT | INTC2 | 31 | N/A |
+| 96 | N/A | N/A | N/A | N/A |
+| 97 | N/A | N/A | N/A | N/A |
+| 98 | CA7COM0_INT | INTC3 | 2 | N/A |
+| 99 | CA7COM1_INT | INTC3 | 3 | N/A |
+| 100 | CA7COM2_INT | INTC3 | 4 | N/A |
+| 101 | CA7COM3_INT | INTC3 | 5 | N/A |
+| 102 | NCNTV0_INT | INTC3 | 6 | N/A |
+| 103 | NCNTV1_INT | INTC3 | 7 | N/A |
+| 104 | NCNTV2_INT | INTC3 | 8 | N/A |
+| 105 | NCNTV3_INT | INTC3 | 9 | N/A |
+| 106 | NCNTHP0_INT | INTC3 | 10 | N/A |
+| 107 | NCNTHP1_INT | INTC3 | 11 | N/A |
+| 108 | NCNTHP2_INT | INTC3 | 12 | N/A |
+| 109 | NCNTHP3_INT | INTC3 | 13 | N/A |
+| 110 | NCNTPN0_INT | INTC3 | 14 | N/A |
+| 111 | NCNTPN1_INT | INTC3 | 15 | N/A |
+| 112 | NCNTPN2_INT | INTC3 | 16 | N/A |
+| 113 | NCNTP3_INT | INTC3 | 17 | N/A |
+| 114 | NCNTPS0_INT | INTC3 | 18 | N/A |
+| 115 | NCNTPS1_INT | INTC3 | 19 | N/A |
+| 116 | NCNTPS2_INT | INTC3 | 20 | N/A |
+| 117 | NCNTPS3_INT | INTC3 | 21 | N/A |
+| 118 | APTMR1_INT | INTC3 | 22 | 2 |
+| 119 | APTMR2_INT | INTC3 | 23 | 2 |
+| 120 | APTMR3_INT | INTC3 | 24 | 2 |
+| 121 | APTMR4_INT | INTC3 | 25 | 2 |
+| 122 | AVS_INT | INTC3 | 26 | 9 |
+| 123 | APWDG_INT | INTC3 | 27 | 8 |
+| 124 | CA7WDG_INT | INTC3 | 28 | 8 |
+
+== Registers ==[intc_regs]
+
+|| Symbol | Offset | Description ||
+| [IRQ_MSK #intc_regs_irq_msk] | 0x00 | IRQ status after masking |
+| [IRQ_RAW #intc_regs_irq_raw] | 0x04 | IRQ status before masking |
+| [IRQ_EN #intc_regs_irq_en] | 0x08 | IRQ enable register |
+| [IRQ_DIS #intc_regs_irq_dis] | 0x0c | IRQ disable register |
+| [IRQ_SOFT #intc_regs_irq_soft] | 0x10 |  |
+| [FIQ_MSK #intc_regs_fiq_msk] | 0x20 | FIQ status after masking |
+| [FIQ_RAW #intc_regs_fiq_raw] | 0x24 | FIQ status before masking |
+| [FIQ_EN #intc_regs_fiq_en] | 0x28 | FIQ enable register |
+| [FIQ_DIS #intc_regs_fiq_dis] | 0x2c | FIQ disable register |
+
+
+=== IRQ_MSK (0x00) ===[intc_regs_irq_msk]
+
+|| Symbol | Bit range | R/W | Description ||
+| IRQ_MSK | 31-0 | R | IRQ status after masking |
+
+=== IRQ_RAW (0x04) ===[intc_regs_irq_raw]
+
+|| Symbol | Bit range | R/W | Description ||
+| IRQ_RAW | 31-0 | R | IRQ status before masking |
+
+=== IRQ_EN (0x08) ===[intc_regs_irq_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| IRQ_EN | 31-0 | W | IRQ enable register |
+
+=== IRQ_DIS (0x0c) ===[intc_regs_irq_dis]
+
+|| Symbol | Bit range | R/W | Description ||
+| IRQ_DIS | 31-0 | W | IRQ disable register |
+
+=== IRQ_SOFT (0x10) ===[intc_regs_irq_soft]
+
+|| Symbol | Bit range | R/W | Description ||
+
+=== FIQ_MSK (0x00) ===[intc_regs_fiq_msk]
+
+|| Symbol | Bit range | R/W | Description ||
+| FIQ_MSK | 31-0 | R | FIQ status after masking |
+
+=== FIQ_RAW (0x04) ===[intc_regs_fiq_raw]
+
+|| Symbol | Bit range | R/W | Description ||
+| FIQ_RAW | 31-0 | R | FIQ status before masking |
+
+=== FIQ_EN (0x08) ===[intc_regs_fiq_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| FIQ_EN | 31-0 | W | FIQ enable register |
+
+=== FIQ_DIS (0x0c) ===[intc_regs_fiq_dis]
+
+|| Symbol | Bit range | R/W | Description ||
+| FIQ_DIS | 31-0 | W | FIQ disable register |
+

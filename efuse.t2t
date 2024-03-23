@@ -1,0 +1,122 @@
+
+= EFUSE =[efuse]
+
+|| Base address ||
+| 0x40240000 |
+
+== Registers ==[efuse_regs]
+
+|| Symbol | Offset | Description ||
+| [DATA_RD #efuse_regs_data_rd] | 0x0000 | Data read register |
+| [DATA_WR #efuse_regs_data_wr] | 0x0004 | Data write register |
+| [READ_WRITE_INDEX #efuse_regs_read_write_index] | 0x0008 | Index register |
+| [MODE_CTRL #efuse_regs_mode_ctrl] | 0x000c | Operation mode control |
+| [CFG0 #efuse_regs_cfg0] | 0x0010 | Configuration register 0 |
+| [CFG1 #efuse_regs_cfg1] | 0x0014 | Configuration register 1 |
+| [STATUS #efuse_regs_status] | 0x0020 | Status register |
+| [BLK_FLAG0 #efuse_regs_blk_flag0] | 0x0024 |  |
+| [BLK_FLAG1 #efuse_regs_blk_flag1] | 0x0028 |  |
+| [BLK_FLAG0_CLR #efuse_regs_blk_flag0_clr] | 0x0030 |  |
+| [BLK_FLAG1_CLR #efuse_regs_blk_flag1_clr] | 0x0034 |  |
+| [MAGIC_NUMBER #efuse_regs_magic_number] | 0x0040 | Magic number register |
+| [STROBE_LOW_WIDTH #efuse_regs_strobe_low_width] | 0x0044 |  |
+| [EFUSE_DEB_CTRL #efuse_regs_efuse_deb_ctrl] | 0x0048 | Debug control register |
+
+=== DATA_RD (0x40240000) ===[efuse_regs_data_rd]
+
+Data read from eFuse block.
+
+|| Symbol | Bit range | R/W | Description ||
+| DATA | 31-0 | R | Last data word read from eFuse |
+
+=== DATA_WR (0x40240004) ===[efuse_regs_data_wr]
+
+Data write register.
+
+|| Symbol | Bit range | R/W | Description ||
+| DATA | 31-0 | R | Data word to program to eFuse |
+
+=== READ_WRITE_INDEX (0x40240008) ===[efuse_regs_read_write_index]
+
+eFuse block index register.
+
+|| Symbol | Bit range | R/W | Description ||
+| READ_WRITE_INDEX | 4-0 | RW | Index of eFuse block to read/program. 0-15 for user fuses. 16-31 for unknown purpose. |
+
+=== MODE_CTRL (0x4024000c) ===[efuse_regs_mode_ctrl]
+
+Operation mode control.
+
+|| Symbol | Bit range | R/W | Description ||
+| STANDBY_START | 2 | W | Write 1 to enter standby |
+| RD_START | 1 | W | Write 1 to enter read mode |
+| PGM_START | 0 | W | Write 1 to this bit to start A_PGM mode (array PGM mode). This bit is self-clear, read this bit will always get 0. |
+
+=== CFG0 (0x40240010) ===[efuse_regs_cfg0]
+
+Configuration register 0.
+
+|| Symbol | Bit range | R/W | Description ||
+| PGM_EN | 31 | RW | Only set this bit can SW write register field of TPGM_TIME_CNT and start PGM mode, for protect SW unexpectedly programmed eFuse memory. |
+| EFS_VDD_ON | 30 | RW | Set this bit will open 0.9v static power supply for efuse memory, before any operation towards to efuse memory this bit have to set to 1. Once this bit is cleared, the efuse will go to power down mode. |
+| BIT_EFS_VDDQ_K2_ON | 29 | RW |  |
+| BIT_EFS_VDDQ_K1_ON | 28 | RW |  |
+| EFS_TYPE | 17-16 | RW | eFuse type. 0=? 1=? 2=? 3=? |
+| TPGM_TIME_CNT | 8-0 | RW |  |
+
+=== CFG1 (0x40240014) ===[efuse_regs_cfg1]
+
+Configuration register 1.
+
+|| Symbol | Bit range | R/W | Description ||
+| BLK0_AUTO_TEST_EN | 0 | RW |  |
+
+=== STATUS (0x40240020) ===[efuse_regs_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| STANDBY_BUSY | 2 | R |  |
+| READ_BUSY | 1 | R |  |
+| PGM_BUSY | 0 | R |  |
+
+=== BLK_FLAG0 (0x40240024) ===[efuse_regs_blk_flag0]
+
+|| Symbol | Bit range | R/W | Description ||
+| BLK0_PROT_FLAG | 0 | R |  |
+
+=== BLK_FLAG1 (0x40240028) ===[efuse_regs_blk_flag1]
+
+|| Symbol | Bit range | R/W | Description ||
+| BLK0_ERR_FLAG | 0 | R |  |
+
+=== BLK_FLAG0_CLR (0x40240030) ===[efuse_regs_blk_flag0_clr]
+
+|| Symbol | Bit range | R/W | Description ||
+| BLK0_PROT_FLAG_CLR | 0 | W |  |
+
+=== BLK_FLAG1_CLR (0x40240034) ===[efuse_regs_blk_flag1_clr]
+
+|| Symbol | Bit range | R/W | Description ||
+| BLK0_ERR_FLAG_CLR | 0 | W |  |
+
+=== MAGIC_NUMBER (0x40240040) ===[efuse_regs_magic_number]
+
+|| Symbol | Bit range | R/W | Description ||
+| DEB_MAGIC_NUMBER | 31-16 | RW | Write 0x6868 to enable debug features. |
+| MAGIC_NUMBER | 15-0 | RW | Magic number, only when this field is 0x8810, the efuse programming command can be handle. So, if SW want to program efuse memory, except open clocks and power, the follow conditions must be met: 1. PGM_EN = 1; 2. EFUSE_MAGIC_NUMBER = 0x8810 |
+
+=== STROBE_LOW_WIDTH (0x40240044) ===[efuse_regs_strobe_low_width]
+
+|| Symbol | Bit range | R/W | Description ||
+| CLK_EFS_DIV | 23-16 | RW |  |
+| EFUSE_STROBE_LOW_WIDTH | 7-0 | RW |  |
+
+=== EFUSE_DEB_CTRL (0x40240048) ===[efuse_regs_efuse_deb_ctrl]
+
+Debug control register.
+
+I guess this register only takes effect if 0x6868 is written into DEB_MAGIC_NUMBER.
+
+|| Symbol | Bit range | R/W | Description ||
+| MARGIN_MODE_EN | 1 | RW |  |
+| DOUBLE_BIT_DISABLE | 0 | RW | Disable eFuse bits redundancy? |
+

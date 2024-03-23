@@ -1,0 +1,160 @@
+
+= PUB APB control =[pubapb]
+
+|| Base address ||
+| 0x30020000 |
+
+== Registers ==[pubapb_regs]
+
+|| Symbol | Offset | Description ||
+| [BUSMON_CNT_START #pubapb_regs_busmon_cnt_start] | 0x0000 |  |
+| [BUSMON_CFG #pubapb_regs_busmon_cfg] | 0x0004 |  |
+| [DDR_EB #pubapb_regs_ddr_eb] | 0x0008 |  |
+| [DDR_SOFT_RST #pubapb_regs_ddr_soft_rst] | 0x000c |  |
+| [DDR_QOS_CFG1 #pubapb_regs_ddr_qos_cfg1] | 0x0010 |  |
+| [DDR_QOS_CFG2 #pubapb_regs_ddr_qos_cfg2] | 0x0014 |  |
+| [DDR_QOS_CFG3 #pubapb_regs_ddr_qos_cfg3] | 0x0018 |  |
+| [DDR_MRR_STATUS #pubapb_regs_ddr_mrr_status] | 0x001c |  |
+| [DDR_ID2QOS_SEL #pubapb_regs_ddr_id2qos_sel] | 0x003c |  |
+| [DDR_ID2QOS_RCFG0 #pubapb_regs_ddr_id2qos_rcfg0] | 0x0040 |  |
+| [DDR_ID2QOS_RCFG1 #pubapb_regs_ddr_id2qos_rcfg1] | 0x0044 |  |
+| [DDR_ID2QOS_RCFG2 #pubapb_regs_ddr_id2qos_rcfg2] | 0x0048 |  |
+| [DDR_ID2QOS_RCFG3 #pubapb_regs_ddr_id2qos_rcfg3] | 0x004c |  |
+| [DDR_ID2QOS_RCFG4 #pubapb_regs_ddr_id2qos_rcfg4] | 0x0050 |  |
+| [DDR_ID2QOS_RCFG5 #pubapb_regs_ddr_id2qos_rcfg5] | 0x0054 |  |
+| [DDR_ID2QOS_RCFG6 #pubapb_regs_ddr_id2qos_rcfg6] | 0x0058 |  |
+| [DDR_ID2QOS_RCFG7 #pubapb_regs_ddr_id2qos_rcfg7] | 0x005c |  |
+| [DDR_ID2QOS_RCFG8 #pubapb_regs_ddr_id2qos_rcfg8] | 0x0060 |  |
+| [DDR_ID2QOS_RCFG9 #pubapb_regs_ddr_id2qos_rcfg9] | 0x0064 |  |
+| [DDR_ID2QOS_WCFG0 #pubapb_regs_ddr_id2qos_wcfg0] | 0x0080 |  |
+| [DDR_ID2QOS_WCFG1 #pubapb_regs_ddr_id2qos_wcfg1] | 0x0084 |  |
+| [DDR_ID2QOS_WCFG2 #pubapb_regs_ddr_id2qos_wcfg2] | 0x0088 |  |
+| [DDR_ID2QOS_WCFG3 #pubapb_regs_ddr_id2qos_wcfg3] | 0x008c |  |
+| [DDR_ID2QOS_WCFG4 #pubapb_regs_ddr_id2qos_wcfg4] | 0x0090 |  |
+| [DDR_ID2QOS_WCFG5 #pubapb_regs_ddr_id2qos_wcfg5] | 0x0094 |  |
+| [DDR_ID2QOS_WCFG6 #pubapb_regs_ddr_id2qos_wcfg6] | 0x0098 |  |
+| [DDR_ID2QOS_WCFG7 #pubapb_regs_ddr_id2qos_wcfg7] | 0x009c |  |
+| [DDR_ID2QOS_WCFG8 #pubapb_regs_ddr_id2qos_wcfg8] | 0x00a0 |  |
+| [DDR_ID2QOS_WCFG9 #pubapb_regs_ddr_id2qos_wcfg9] | 0x00a4 |  |
+| [DFI_TIMEOUT_CFG #pubapb_regs_dfi_timeout_cfg] | 0x0100 |  |
+| [DFI_TIMEOUT_STATUS #pubapb_regs_dfi_timeout_status] | 0x0104 |  |
+| [DFI_TIMEOUT_EN_CNT #pubapb_regs_dfi_timeout_en_cnt] | 0x0108 |  |
+| [DFI_TIMEOUT_VALID_CNT #pubapb_regs_dfi_timeout_valid_cnt] | 0x010c |  |
+| [DMC_PORT_REMAP_EN #pubapb_regs_dmc_port_remap_en] | 0x3000 |  |
+| [DMC_PORTS_MPU_EN #pubapb_regs_dmc_ports_mpu_en] | 0x3004 |  |
+| [DMC_PORT0_ADDR_REMAP #pubapb_regs_dmc_port0_addr_remap] | 0x3008 |  |
+| [DMC_PORT1_ADDR_REMAP #pubapb_regs_dmc_port1_addr_remap] | 0x300c |  |
+| [DMC_PORT2_ADDR_REMAP #pubapb_regs_dmc_port2_addr_remap] | 0x3010 |  |
+| [DMC_PORT3_ADDR_REMAP #pubapb_regs_dmc_port3_addr_remap] | 0x3014 |  |
+| [DMC_PORT4_ADDR_REMAP #pubapb_regs_dmc_port4_addr_remap] | 0x3018 |  |
+| [DMC_PORT5_ADDR_REMAP #pubapb_regs_dmc_port5_addr_remap] | 0x301c |  |
+| [DMC_PORT6_ADDR_REMAP #pubapb_regs_dmc_port6_addr_remap] | 0x3020 |  |
+| [DMC_PORT7_ADDR_REMAP #pubapb_regs_dmc_port7_addr_remap] | 0x3024 |  |
+| [DMC_PORT8_ADDR_REMAP #pubapb_regs_dmc_port8_addr_remap] | 0x3028 |  |
+| [DMC_PORT9_ADDR_REMAP #pubapb_regs_dmc_port9_addr_remap] | 0x302c |  |
+| [DMC_PORT0_MPU_RANGE #pubapb_regs_dmc_port0_mpu_range] | 0x3030 |  |
+| [DMC_PORT1_MPU_RANGE #pubapb_regs_dmc_port1_mpu_range] | 0x3034 |  |
+| [DMC_PORT2_MPU_RANGE #pubapb_regs_dmc_port2_mpu_range] | 0x3038 |  |
+| [DMC_PORT3_MPU_RANGE #pubapb_regs_dmc_port3_mpu_range] | 0x303c |  |
+| [DMC_PORT4_MPU_RANGE #pubapb_regs_dmc_port4_mpu_range] | 0x3040 |  |
+| [DMC_PORT5_MPU_RANGE #pubapb_regs_dmc_port5_mpu_range] | 0x3044 |  |
+| [DMC_PORT6_MPU_RANGE #pubapb_regs_dmc_port6_mpu_range] | 0x3048 |  |
+| [DMC_PORT7_MPU_RANGE #pubapb_regs_dmc_port7_mpu_range] | 0x3050 |  |
+| [DMC_PORT8_MPU_RANGE #pubapb_regs_dmc_port8_mpu_range] | 0x3054 |  |
+| [DMC_PORT9_MPU_RANGE #pubapb_regs_dmc_port9_mpu_range] | 0x3058 |  |
+| [DMC_PORT0_DUMP_ADDR #pubapb_regs_dmc_port0_dump_addr] | 0x305c |  |
+| [DMC_PORT1_DUMP_ADDR #pubapb_regs_dmc_port1_dump_addr] | 0x3060 |  |
+| [DMC_PORT2_DUMP_ADDR #pubapb_regs_dmc_port2_dump_addr] | 0x3064 |  |
+| [DMC_PORT3_DUMP_ADDR #pubapb_regs_dmc_port3_dump_addr] | 0x3068 |  |
+| [DMC_PORT4_DUMP_ADDR #pubapb_regs_dmc_port4_dump_addr] | 0x306c |  |
+| [DMC_PORT5_DUMP_ADDR #pubapb_regs_dmc_port5_dump_addr] | 0x3070 |  |
+| [DMC_PORT6_DUMP_ADDR #pubapb_regs_dmc_port6_dump_addr] | 0x3074 |  |
+| [DMC_PORT7_DUMP_ADDR #pubapb_regs_dmc_port7_dump_addr] | 0x3078 |  |
+| [DMC_PORT8_DUMP_ADDR #pubapb_regs_dmc_port8_dump_addr] | 0x307c |  |
+| [DMC_PORT9_DUMP_ADDR #pubapb_regs_dmc_port9_dump_addr] | 0x3080 |  |
+
+
+=== BUSMON_CNT_START (0x30020000) ===[pubapb_regs_busmon_cnt_start]
+
+|| Symbol | Bit range | R/W | Description ||
+| PUB_BUSMON_CNT_START | 0 | RW |  |
+
+=== BUSMON_CFG (0x30020004) ===[pubapb_regs_busmon_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PUB_BUSMON9_EB | 25 | RW |  |
+| PUB_BUSMON8_EB | 24 | RW |  |
+| PUB_BUSMON7_EB | 23 | RW |  |
+| PUB_BUSMON6_EB | 22 | RW |  |
+| PUB_BUSMON5_EB | 21 | RW |  |
+| PUB_BUSMON4_EB | 20 | RW |  |
+| PUB_BUSMON3_EB | 19 | RW |  |
+| PUB_BUSMON2_EB | 18 | RW |  |
+| PUB_BUSMON1_EB | 17 | RW |  |
+| PUB_BUSMON0_EB | 16 | RW |  |
+| PUB_BUSMON9_SOFT_RST | 9 | RW |  |
+| PUB_BUSMON8_SOFT_RST | 8 | RW |  |
+| PUB_BUSMON7_SOFT_RST | 7 | RW |  |
+| PUB_BUSMON6_SOFT_RST | 6 | RW |  |
+| PUB_BUSMON5_SOFT_RST | 5 | RW |  |
+| PUB_BUSMON4_SOFT_RST | 4 | RW |  |
+| PUB_BUSMON3_SOFT_RST | 3 | RW |  |
+| PUB_BUSMON2_SOFT_RST | 2 | RW |  |
+| PUB_BUSMON1_SOFT_RST | 1 | RW |  |
+| PUB_BUSMON0_SOFT_RST | 0 | RW |  |
+
+=== DDR_EB (0x30020008) ===[pubapb_regs_ddr_eb]
+
+Appears unused.
+
+|| Symbol | Bit range | R/W | Description ||
+
+=== DDR_SOFT_RST (0x3002000c) ===[pubapb_regs_ddr_soft_rst]
+
+Appears unused.
+
+|| Symbol | Bit range | R/W | Description ||
+
+=== DDR_QOS_CFG1 (0x30020010) ===[pubapb_regs_ddr_qos_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| DMC_ARQOS_3 | 31-28 | RW |  |
+| DMC_AWQOS_3 | 27-24 | RW |  |
+| DMC_ARQOS_2 | 23-20 | RW |  |
+| DMC_AWQOS_2 | 19-16 | RW |  |
+| DMC_ARQOS_1 | 15-12 | RW |  |
+| DMC_AWQOS_1 | 11-8 | RW |  |
+| DMC_ARQOS_0 | 7-4 | RW |  |
+| DMC_AWQOS_0 | 3-0 | RW |  |
+
+=== DDR_QOS_CFG2 (0x30020014) ===[pubapb_regs_ddr_qos_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| DMC_ARQOS_7 | 31-28 | RW |  |
+| DMC_AWQOS_7 | 27-24 | RW |  |
+| DMC_ARQOS_6 | 23-20 | RW |  |
+| DMC_AWQOS_6 | 19-16 | RW |  |
+| DMC_ARQOS_5 | 15-12 | RW |  |
+| DMC_AWQOS_5 | 11-8 | RW |  |
+| DMC_ARQOS_4 | 7-4 | RW |  |
+| DMC_AWQOS_4 | 3-0 | RW |  |
+
+=== DDR_QOS_CFG3 (0x30020018) ===[pubapb_regs_ddr_qos_cfg3]
+
+|| Symbol | Bit range | R/W | Description ||
+| DMC_ARQOS_9 | 15-12 | RW |  |
+| DMC_AWQOS_9 | 11-8 | RW |  |
+| DMC_ARQOS_8 | 7-4 | RW |  |
+| DMC_AWQOS_8 | 3-0 | RW |  |
+
+=== DDR_MRR_STATUS (0x3002001c) ===[pubapb_regs_ddr_mrr_status]
+
+|| Symbol | Bit range | R/W | Description ||
+|  |  | RW |  |
+
+===  (0x3002xxxx) ===[pubapb_regs_]
+
+|| Symbol | Bit range | R/W | Description ||
+|  |  | RW |  |
+
+

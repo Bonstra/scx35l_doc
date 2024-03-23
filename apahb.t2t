@@ -1,0 +1,422 @@
+
+= AP AHB control =[apahb]
+
+|| Base address ||
+| 0x20e00000 |
+
+== Registers ==[apahb_regs]
+
+|| Symbol | Offset | Description ||
+| [AHB_EB #apahb_regs_ahb_eb] | 0x0000 | AHB enable bits |
+| [AHB_RST #apahb_regs_ahb_rst] | 0x0004 | AHB reset bits |
+| [CA7_RST_SET #apahb_regs_ca7_rst_set] | 0x0008 |  |
+| [AP_SYS_FORCE_SLEEP_CFG #apahb_regs_ap_sys_force_sleep_cfg] | 0x000c |  |
+| [AP_SYS_AUTO_SLEEP_CFG #apahb_regs_ap_sys_auto_sleep_cfg] | 0x0010 |  |
+| [HOLDING_PEN #apahb_regs_holding_pen] | 0x0014 |  |
+| [JMP_ADDR_CA7_C0 #apahb_regs_jmp_addr_ca7_c0] | 0x0018 |  |
+| [JMP_ADDR_CA7_C1 #apahb_regs_jmp_addr_ca7_c1] | 0x001c |  |
+| [JMP_ADDR_CA7_C2 #apahb_regs_jmp_addr_ca7_c2] | 0x0020 |  |
+| [JMP_ADDR_CA7_C3 #apahb_regs_jmp_addr_ca7_c3] | 0x0024 |  |
+| [CA7_C0_PU_LOCK #apahb_regs_ca7_c0_pu_lock] | 0x0028 |  |
+| [CA7_C1_PU_LOCK #apahb_regs_ca7_c1_pu_lock] | 0x002c |  |
+| [CA7_C2_PU_LOCK #apahb_regs_ca7_c2_pu_lock] | 0x0030 |  |
+| [CA7_C3_PU_LOCK #apahb_regs_ca7_c3_pu_lock] | 0x0034 |  |
+| [CA7_CKG_DIV_CFG #apahb_regs_ca7_ckg_div_cfg] | 0x0038 |  |
+| [MCU_PAUSE #apahb_regs_mcu_pause] | 0x003c |  |
+| [MISC_CKG_EN #apahb_regs_misc_ckg_en] | 0x0040 |  |
+| [CA7_C0_AUTO_FORCE_SHUTDOWN_EN #apahb_regs_ca7_c0_auto_force_shutdown_en] | 0x0044 |  |
+| [CA7_C1_AUTO_FORCE_SHUTDOWN_EN #apahb_regs_ca7_c1_auto_force_shutdown_en] | 0x0048 |  |
+| [CA7_C2_AUTO_FORCE_SHUTDOWN_EN #apahb_regs_ca7_c2_auto_force_shutdown_en] | 0x004c |  |
+| [CA7_C3_AUTO_FORCE_SHUTDOWN_EN #apahb_regs_ca7_c3_auto_force_shutdown_en] | 0x0050 |  |
+| [CA7_CKG_SEL_CFG #apahb_regs_ca7_ckg_sel_cfg] | 0x0054 |  |
+| [MISC_CFG #apahb_regs_misc_cfg] | 0x3000 |  |
+| [AP_MAIN_MTX_HPROT_CFG #apahb_regs_ap_main_mtx_hprot_cfg] | 0x3004 |  |
+| [CA7_STANDBY_STATUS #apahb_regs_ca7_standby_status] | 0x3008 |  |
+| [NANC_CLK_CFG #apahb_regs_nanc_clk_cfg] | 0x300c |  |
+| [LVDS_CFG #apahb_regs_lvds_cfg] | 0x3010 |  |
+| [LVDS_PLL_CFG0 #apahb_regs_lvds_pll_cfg0] | 0x3014 |  |
+| [LVDS_PLL_CFG1 #apahb_regs_lvds_pll_cfg1] | 0x3018 |  |
+| [AP_QOS_CFG #apahb_regs_ap_qos_cfg] | 0x301c |  |
+| [OTG_PHY_TUNE #apahb_regs_otg_phy_tune] | 0x3020 |  |
+| [OTG_PHY_TEST #apahb_regs_otg_phy_test] | 0x3024 |  |
+| [OTG_PHY_CTRL #apahb_regs_otg_phy_ctrl] | 0x3028 |  |
+| [HSIC_PHY_TUNE #apahb_regs_hsic_phy_tune] | 0x302c |  |
+| [HSIC_PHY_TEST #apahb_regs_hsic_phy_test] | 0x3030 |  |
+| [HSIC_PHY_CTRL #apahb_regs_hsic_phy_ctrl] | 0x3034 |  |
+| [ZIP_MTX_QOS_CFG #apahb_regs_zip_mtx_qos_cfg] | 0x3038 |  |
+| [CHIP_ID #apahb_regs_chip_id] | 0x30fc |  |
+
+
+=== AHB_EB (0x20e00000) ===[apahb_regs_ahb_eb]
+
+|| Symbol | Bit range | R/W | Description ||
+| ZIPMTX_EB | 23 | RW |  |
+| LVDS_EB | 22 | RW |  |
+| ZIPDEC_EB | 21 | RW |  |
+| ZIPENC_EB | 20 | RW |  |
+| NANDC_ECC_EB | 19 | RW |  |
+| NANDC_2X_EB | 18 | RW |  |
+| NANDC_EB | 17 | RW |  |
+| BUSMON2_EB | 16 | RW |  |
+| BUSMON1_EB | 15 | RW |  |
+| BUSMON0_EB | 14 | RW |  |
+| SPINLOCK_EB | 13 | RW |  |
+| ? | 12 | RW |  |
+| EMMC_EB | 11 | RW |  |
+| SDIO2_EB | 10 | RW |  |
+| SDIO1_EB | 9 | RW |  |
+| SDIO0_EB | 8 | RW |  |
+| DRM_EB | 7 | RW |  |
+| NFC_EB | 6 | RW |  |
+| DMA_EB | 5 | RW |  |
+| OTG_EB | 4 | RW |  |
+| GSP_EB | 3 | RW |  |
+| HSIC_EB | 2 | RW |  |
+| DISPC0_EB | 1 | RW |  |
+| DSI_EB | 0 | RW |  |
+
+=== AHB_RST (0x20e00004) ===[apahb_regs_ahb_rst]
+
+|| Symbol | Bit range | R/W | Description ||
+| HSIC_PHY_SOFT_RST | 30 | RW |  |
+| HSIC_UTMI_SOFT_RST | 29 | RW |  |
+| HSIC_SOFT_RST | 28 | RW |  |
+| LVDS_SOFT_RST | 25 | RW |  |
+| ZIP_MTX_SOFT_RST | 24 | RW |  |
+| ZIPDEC_SOFT_RST | 23 | RW |  |
+| ZIPENC_SOFT_RST | 22 | RW |  |
+| NANDC_SOFT_RST | 20 | RW |  |
+| BUSMON2_SOFT_RST | 19 | RW |  |
+| BUSMON1_SOFT_RST | 18 | RW |  |
+| BUSMON0_SOFT_RST | 17 | RW |  |
+| SPINLOCK_SOFT_RST | 16 | RW |  |
+| EMMC_SOFT_RST | 14 | RW |  |
+| SDIO2_SOFT_RST | 13 | RW |  |
+| SDIO1_SOFT_RST | 12 | RW |  |
+| SDIO0_SOFT_RST | 11 | RW |  |
+| DRM_SOFT_RST | 10 | RW |  |
+| NFC_SOFT_RST | 9 | RW |  |
+| DMA_SOFT_RST | 8 | RW |  |
+| OTG_PHY_SOFT_RST | 6 | RW |  |
+| OTG_UTMI_SOFT_RST | 5 | RW |  |
+| OTG_SOFT_RST | 4 | RW |  |
+| GSP_SOFT_RST | 3 | RW |  |
+| DISP_MTX_SOFT_RST | 2 | RW |  |
+| DISPC0_SOFT_RST | 1 | RW |  |
+| DSI_SOFT_RST | 0 | RW |  |
+
+=== CA7_RST_SET (0x20e00008) ===[apahb_regs_ca7_rst_set]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_CS_DBG_SOFT_RST | 14 | RW |  |
+| CA7_L2_SOFT_RST | 13 | RW |  |
+| CA7_SOCDBG_SOFT_RST | 12 | RW |  |
+| CA7_ETM_SOFT_RST | 11-8 | RW |  |
+| CA7_DBG_SOFT_RST | 7-4 | RW |  |
+| CA7_CORE_SOFT_RST | 3-0 | RW |  |
+
+=== AP_SYS_FORCE_SLEEP_CFG (0x20e0000c) ===[apahb_regs_ap_sys_force_sleep_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C3_AUTO_SLP_EN | 15 | RW |  |
+| CA7_C2_AUTO_SLP_EN | 14 | RW |  |
+| CA7_C1_AUTO_SLP_EN | 13 | RW |  |
+| CA7_C0_AUTO_SLP_EN | 12 | RW |  |
+| CA7_C3_WFI_SHUTDOWN_EN | 11 | RW |  |
+| CA7_C2_WFI_SHUTDOWN_EN | 10 | RW |  |
+| CA7_C1_WFI_SHUTDOWN_EN | 9 | RW |  |
+| CA7_C0_WFI_SHUTDOWN_EN | 8 | RW |  |
+| MCU_CA7_C3_SLEEP | 7 | RW |  |
+| MCU_CA7_C2_SLEEP | 6 | RW |  |
+| MCU_CA7_C1_SLEEP | 5 | RW |  |
+| MCU_CA7_C0_SLEEP | 4 | RW |  |
+| AP_PERI_FORCE_ON | 2 | RW |  |
+| AP_PERI_FORCE_SLP | 1 | RW |  |
+| AP_APB_SLEEP | 0 | RW |  |
+
+=== AP_SYS_AUTO_SLEEP_CFG (0x20e00010) ===[apahb_regs_ap_sys_auto_sleep_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| GSP_CKG_FORCE_EN | 9 | RW |  |
+| GSP_AUTO_GATE_EN | 8 | RW |  |
+| AP_AHB_AUTO_GATE_EN | 5 | RW |  |
+| AP_EMC_AUTO_GATE_EN | 4 | RW |  |
+| CA7_EMC_AUTO_GATE_EN | 3 | RW |  |
+| CA7_DBG_FORCE_SLEEP | 2 | RW |  |
+| CA7_DBG_AUTO_GATE_EN | 1 | RW |  |
+| CA7_CORE_AUTO_GATE_EN | 0 | RW |  |
+
+=== HOLDING_PEN (0x20e00014) ===[apahb_regs_holding_pen]
+
+Holding pen for secondary CA7 cores boot
+
+|| Symbol | Bit range | R/W | Description ||
+| HOLDING_PEN | 31-0 | RW |  |
+
+=== JMP_ADDR_CA7_C0 (0x20e00018) ===[apahb_regs_jmp_addr_ca7_c0]
+
+|| Symbol | Bit range | R/W | Description ||
+| JMP_ADDR | 31-0 | RW | AP core 0 boot jump address |
+
+=== JMP_ADDR_CA7_C1 (0x20e0001c) ===[apahb_regs_jmp_addr_ca7_c1]
+
+|| Symbol | Bit range | R/W | Description ||
+| JMP_ADDR | 31-0 | RW | AP core 1 boot jump address |
+
+=== JMP_ADDR_CA7_C2 (0x20e00020) ===[apahb_regs_jmp_addr_ca7_c2]
+
+|| Symbol | Bit range | R/W | Description ||
+| JMP_ADDR | 31-0 | RW | AP core 2 boot jump address |
+
+=== JMP_ADDR_CA7_C3 (0x20e00024) ===[apahb_regs_jmp_addr_ca7_c3]
+
+|| Symbol | Bit range | R/W | Description ||
+| JMP_ADDR | 31-0 | RW | AP core 3 boot jump address |
+
+=== CA7_C0_PU_LOCK (0x20e00028) ===[apahb_regs_ca7_c0_pu_lock]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C0_PU_LOCK | 0 | RW |  |
+
+=== CA7_C1_PU_LOCK (0x20e0002c) ===[apahb_regs_ca7_c1_pu_lock]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C1_PU_LOCK | 0 | RW |  |
+
+=== CA7_C2_PU_LOCK (0x20e00030) ===[apahb_regs_ca7_c2_pu_lock]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C2_PU_LOCK | 0 | RW |  |
+
+=== CA7_C3_PU_LOCK (0x20e00034) ===[apahb_regs_ca7_c3_pu_lock]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C3_PU_LOCK | 0 | RW |  |
+
+=== CA7_CKG_DIV_CFG (0x20e00038) ===[apahb_regs_ca7_ckg_div_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_DBG_CKG_DIV | 18-16 | RW |  |
+| CA7_AXI_CKG_DIV | 10-8 | RW |  |
+| CA7_MCU_CKG_DIV | 6-4 | RW |  |
+
+=== MCU_PAUSE (0x20e0003c) ===[apahb_regs_mcu_pause]
+
+|| Symbol | Bit range | R/W | Description ||
+| DMA_ACT_LIGHT_EN | 5 | RW |  |
+| MCU_SLEEP_FOLLOW_CA7_EN | 4 | RW |  |
+| MCU_LIGHT_SLEEP_EN | 3 | RW |  |
+| MCU_DEEP_SLEEP_EN | 2 | RW |  |
+| MCU_SYS_SLEEP_EN | 1 | RW |  |
+| MCU_CORE_SLEEP | 0 | RW |  |
+
+=== MISC_CKG_EN (0x20e00040) ===[apahb_regs_misc_ckg_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| ASHB_CA7_DBG_VLD | 9 | RW |  |
+| ASHB_CA7_DBG_EN | 8 | RW |  |
+| DISP_TMC_CKG_EN | 4 | RW |  |
+| DPHY_REF_CKG_EN | 1 | RW |  |
+| DPHY_CFG_CKG_EN | 0 | RW |  |
+
+=== CA7_C0_AUTO_FORCE_SHUTDOWN_EN (0x20e00044) ===[apahb_regs_ca7_c0_auto_force_shutdown_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C0_AUTO_FORCE_SHUTDOWN_EN | 0 | RW |  |
+
+=== CA7_C1_AUTO_FORCE_SHUTDOWN_EN (0x20e00048) ===[apahb_regs_ca7_c1_auto_force_shutdown_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C1_AUTO_FORCE_SHUTDOWN_EN | 1 | RW |  |
+
+=== CA7_C2_AUTO_FORCE_SHUTDOWN_EN (0x20e0004c) ===[apahb_regs_ca7_c2_auto_force_shutdown_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C2_AUTO_FORCE_SHUTDOWN_EN | 2 | RW |  |
+
+=== CA7_C3_AUTO_FORCE_SHUTDOWN_EN (0x20e00050) ===[apahb_regs_ca7_c3_auto_force_shutdown_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C3_AUTO_FORCE_SHUTDOWN_EN | 3 | RW |  |
+
+=== CA7_CKG_SEL_CFG (0x20e00054) ===[apahb_regs_ca7_ckg_sel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_MCU_CKG_SEL | 2-0 | RW |  |
+
+=== MISC_CFG (0x20e03000) ===[apahb_regs_misc_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| EMMC_SLOT_SEL | 19-18 | RW |  |
+| SDIO_SLOT_SEL | 17-16 | RW |  |
+| BUSMON2_CHN_SEL | 11-10 | RW |  |
+| BUSMON1_CHN_SEL | 9-8 | RW |  |
+| BUSMON0_CHN_SEL | 5-4 | RW |  |
+| SDIO2_SLOT_SEL | 3-2 | RW |  |
+| SDIO1_SLOT_SEL | 1-0 | RW |  |
+
+=== AP_MAIN_MTX_HPROT_CFG (0x20e03004) ===[apahb_regs_ap_main_mtx_hprot_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| HPROT_NFC | 27-24 | RW | AHB HPROT value for NFC master accesses |
+| HPROT_EMMC | 23-20 | RW | AHB HPROT value for EMMC master accesses |
+| HPROT_SDIO2 | 19-16 | RW | AHB HPROT value for SDIO2 master accesses |
+| HPROT_SDIO1 | 15-12 | RW | AHB HPROT value for SDIO1 master accesses |
+| HPROT_SDIO0 | 11-8 | RW | AHB HPROT value for SDIO0 master accesses |
+| HPROT_DMAW | 7-4 | RW | AHB HPROT value for DMA write master accesses |
+| HPROT_DMAR | 3-0 | RW | AHB HPROT value for DMA read master accesses |
+
+=== CA7_STANDBY_STATUS (0x20e03008) ===[apahb_regs_ca7_standby_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_STANDBYWFIL2 | 12 | R |  |
+| CA7_ETMSTANDBYWFX | 11-8 | R |  |
+| CA7_STANDBYWFE | 7-4 | R |  |
+| CA7_STANDBYWFI | 3-0 | R |  |
+
+=== NANC_CLK_CFG (0x20e0300c) ===[apahb_regs_nanc_clk_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CLK_NANDC2X_DIV | 3-2 | RW |  |
+| CLK_NANDC2X_SEL | 1-0 | RW |  |
+
+=== LVDS_CFG (0x20e03010) ===[apahb_regs_lvds_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDS_TXCLKDATA | 22-16 | RW |  |
+| LVDS_TXCOM | 13-12 | RW |  |
+| LVDS_TXSLEW | 11-10 | RW |  |
+| LVDS_TXSW | 9-8 | RW |  |
+| LVDS_TXRERSER | 7-3 | RW |  |
+| LVDS_PRE_EMP | 2-1 | RW |  |
+| LVDS_TXPD | 0 | RW |  |
+
+=== LVDS_PLL_CFG0 (0x20e03014) ===[apahb_regs_lvds_pll_cfg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDS_PLL_LOCK_DET | 31 | R |  |
+| LVDS_PLL_REFIN | 25-24 | RW |  |
+| LVDS_PLL_LPF | 22-20 | RW |  |
+| LVDS_PLL_DIV_S | 18 | RW |  |
+| LVDS_PLL_IBIAS | 17-16 | RW |  |
+| LVDS_PLLN | 10-0 | RW |  |
+
+=== LVDS_PLL_CFG1 (0x20e03018) ===[apahb_regs_lvds_pll_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDS_PLL_KINT | 31-12 | RW |  |
+| LVDS_PLL_RSV | 9-8 | RW |  |
+| LVDS_PLL_MOD_EN | 7 | RW |  |
+| LVDS_PLL_SDM_EN | 6 | RW |  |
+| LVDS_PLL_NINT | 5-0 | RW |  |
+
+=== AP_QOS_CFG (0x20e0301c) ===[apahb_regs_ap_qos_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| QOS_R_TMC | 23-20 | RW |  |
+| QOS_W_TMC | 19-16 | RW |  |
+| QOS_R_DISPC | 7-4 | RW |  |
+| QOS_W_DISPC | 3-0 | RW |  |
+
+=== OTG_PHY_TUNE (0x20e03020) ===[apahb_regs_otg_phy_tune]
+
+|| Symbol | Bit range | R/W | Description ||
+| OTG_TXPREEMPPULSETUNE | 20 | RW? |  |
+| OTG_TXRESTUNE | 19-18 | RW |  |
+| OTG_TXHSXVTUNE | 17-16 | RW |  |
+| OTG_TXVREFTUNE | 15-12 | RW |  |
+| OTG_TXPREEMPAMPTUNE | 11-10 | RW |  |
+| OTG_TXRISETUNE | 9-8 | RW |  |
+| OTG_TXFSLSTUNE | 7-4 | RW |  |
+| OTG_SQRXTUNE | 2-0 | RW |  |
+
+=== OTG_PHY_TEST (0x20e03024) ===[apahb_regs_otg_phy_test]
+
+|| Symbol | Bit range | R/W | Description ||
+| OTG_ATERESET | 31 | RW |  |
+| OTG_VBUS_VALID_EXT_SEL | 26 | RW |  |
+| OTG_VBUS_VALID_EXT | 25 | RW |  |
+| OTG_OTGDISABLE | 24 | RW |  |
+| OTG_TESTBURNIN | 21 | RW |  |
+| OTG_LOOPBACKENB | 20 | RW |  |
+| OTG_TESTDATAOUT | 19-16 | RW |  |
+| OTG_VATESTENB | 15-14 | RW |  |
+| OTG_TESTCLK | 13 | RW |  |
+| OTG_TESTDATAOUTSEL | 12 | RW |  |
+| OTG_TESTADDR | 11-8 | RW |  |
+| OTG_TESTDATAIN | 7-0 | RW |  |
+
+=== OTG_PHY_CTRL (0x20e03028) ===[apahb_regs_otg_phy_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| OTG_SS_SCALEDOWNMODE | 26-25 | RW |  |
+| OTG_TXBITSTUFFENH | 23 | RW |  |
+| OTG_TXBITSTUFFEN | 22 | RW |  |
+| OTG_DMPULLDOWN | 21 | RW |  |
+| OTG_DPPULLDOWN | 20 | RW |  |
+| OTG_DMPULLUP | 9 | RW |  |
+| OTG_COMMONONN | 8 | RW |  |
+| OTG_REFCLKSEL | 5-4 | RW |  |
+| OTG_FSEL | 2-0 | RW |  |
+
+=== HSIC_PHY_TUNE (0x20e0302c) ===[apahb_regs_hsic_phy_tune]
+
+|| Symbol | Bit range | R/W | Description ||
+| HSIC_REFCLK_DIV | 30-24 | RW |  |
+| HSIC_TXPREEMPPULSETUNE | 20 | RW |  |
+| HSIC_TXRESTUNE | 19-18 | RW |  |
+| HSIC_TXHSXVTUNE | 17-16 | RW |  |
+| HSIC_TXVREFTUNE | 15-12 | RW |  |
+| HSIC_TXPREEMPAMPTUNE | 11-10 | RW |  |
+| HSIC_TXRISETUNE | 9-8 | RW |  |
+| HSIC_TXFSLSTUNE | 7-4 | RW |  |
+| HSIC_SQRXTUNE | 2-0 | RW |  |
+
+=== HSIC_PHY_TEST (0x20e03030) ===[apahb_regs_hsic_phy_test]
+
+|| Symbol | Bit range | R/W | Description ||
+| HSIC_ATERESET | 31 | RW |  |
+| HSIC_VBUS_VALID_EXT_SEL | 26 | RW |  |
+| HSIC_VBUS_VALID_EXT | 25 | RW |  |
+| HSIC_OTGDISABLE | 24 | RW |  |
+| HSIC_TESTBURNIN | 21 | RW |  |
+| HSIC_LOOPBACKENB | 20 | RW |  |
+| HSIC_TESTDATAOUT | 19-16 | RW |  |
+| HSIC_VATESTENB | 15-14 | RW |  |
+| HSIC_TESTCLK | 13 | RW |  |
+| HSIC_TESTDATAOUTSEL | 12 | RW |  |
+| HSIC_TESTADDR | 11-8 | RW |  |
+| HSIC_TESTDATAIN | 7-0 | RW |  |
+
+=== HSIC_PHY_CTRL (0x20e03034) ===[apahb_regs_hsic_phy_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| HSIC_SS_SCALEDOWNMODE | 26-25 | RW |  |
+| HSIC_TXBITSTUFFENH | 23 | RW |  |
+| HSIC_TXBITSTUFFEN | 22 | RW |  |
+| HSIC_DMPULLDOWN | 21 | RW |  |
+| HSIC_DPPULLDOWN | 20 | RW |  |
+| HSIC_IF_MODE | 16 | RW |  |
+| IF_SELECT_HSIC | 13 | RW |  |
+| HSIC_DBNCE_FLTR_BYPASS | 12 | RW |  |
+| HSIC_DMPULLUP | 9 | RW |  |
+| HSIC_COMMONONN | 8 | RW |  |
+| HSIC_REFCLKSEL | 5-4 | RW |  |
+| HSIC_FSEL | 2-0 | RW |  |
+
+=== ZIP_MTX_QOS_CFG (0x20e03038) ===[apahb_regs_zip_mtx_qos_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| ZIPMTX_S0_ARQOS | 23-20 | RW |  |
+| ZIPMTX_S0_AWQOS | 19-16 | RW |  |
+| ZIPDEC_ARQOS | 15-12 | RW |  |
+| ZIPDEC_AWQOS | 11-8 | RW |  |
+| ZIPENC_ARQOS | 7-4 | RW |  |
+| ZIPENC_AWQOS | 3-0 | RW |  |
+
+=== CHIP_ID (0x20e030fc) ===[apahb_regs_chip_id]
+
+|| Symbol | Bit range | R/W | Description ||
+| CHIP_ID | 31-0 | R | For SCX35L/SC9830I: 0x96300000 |
+
+

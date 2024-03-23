@@ -1,0 +1,1085 @@
+
+= PMU =[pmu]
+
+|| Base address ||
+| 0x402b0000 |
+
+== Registers ==[pmu_regs]
+
+|| Symbol | Offset | Description ||
+| [PD_CA7_TOP_CFG #pmu_regs_pd_ca7_top_cfg] | 0x0000 | Cortex-A7 top power down config |
+| [PD_CA7_C0_CFG #pmu_regs_pd_ca7_c0_cfg] | 0x0004 | Cortex-A7 core 0 power down config |
+| [PD_CA7_C1_CFG #pmu_regs_pd_ca7_c1_cfg] | 0x0008 | Cortex-A7 core 1 power down config |
+| [PD_CA7_C2_CFG #pmu_regs_pd_ca7_c2_cfg] | 0x000c | Cortex-A7 core 2 power down config |
+| [PD_CA7_C3_CFG #pmu_regs_pd_ca7_c3_cfg] | 0x0010 | Cortex-A7 core 3 power down config |
+| [PD_AP_SYS_CFG #pmu_regs_pd_ap_sys_cfg] | 0x0018 | AP_SYS power down config |
+| [PD_MM_TOP_CFG #pmu_regs_pd_mm_top_cfg] | 0x001c | MM_TOP power down config |
+| [PD_GPU_TOP_CFG #pmu_regs_pd_gpu_top_cfg] | 0x0020 | GPU_TOP power down config |
+| [PD_CP0_ARM9_0_CFG #pmu_regs_pd_cp0_arm9_0_cfg] | 0x0024 | CP0 ARM9 0 power down config |
+| [PD_CP0_ARM9_1_CFG #pmu_regs_pd_cp0_arm9_1_cfg] | 0x0028 | CP0 ARM9 1 power down config |
+| [PD_CP0_HU3GE_CFG #pmu_regs_pd_cp0_hu3ge_cfg] | 0x002c | CP0 HU3GE power down config |
+| [PD_CP0_GSM_0_CFG #pmu_regs_pd_cp0_gsm_0_cfg] | 0x0030 | CP0 GSM 0 power down config |
+| [PD_CP0_GSM_1_CFG #pmu_regs_pd_cp0_gsm_1_cfg] | 0x0034 | CP0 GSM 1 power down config |
+| [PD_CP0_TD_CFG #pmu_regs_pd_cp0_td_cfg] | 0x0038 | CP0 TD power down config |
+| [PD_CP0_CEVA_0_CFG #pmu_regs_pd_cp0_ceva_0_cfg] | 0x003c | CP0 CEVA DSP 0 power down config |
+| [PD_CP0_CEVA_1_CFG #pmu_regs_pd_cp0_ceva_1_cfg] | 0x0040 | CP0 CEVA DSP 1 power down config |
+| [PD_CP0_SYS_CFG #pmu_regs_pd_cp0_sys_cfg] | 0x0044 | CP0_SYS power down config |
+| [PD_CP1_CA5_CFG #pmu_regs_pd_cp1_ca5_cfg] | 0x0048 | CP1 Cortex-A5 power down config |
+| [PD_CP1_LTE_P1_CFG #pmu_regs_pd_cp1_lte_p1_cfg] | 0x004c | CP1 LTE P1 power down config |
+| [PD_CP1_LTE_P2_CFG #pmu_regs_pd_cp1_lte_p2_cfg] | 0x0050 | CP1 LTE P2 power down config |
+| [PD_CP1_CEVA_CFG #pmu_regs_pd_cp1_ceva_cfg] | 0x0054 | CP1 CEVA DSP power down config |
+| [PD_CP1_COMWRAP_CFG #pmu_regs_pd_cp1_comwrap_cfg] | 0x0058 | CP1 COMWRAP power down config |
+| [PD_PUB_SYS_CFG #pmu_regs_pd_pub_sys_cfg] | 0x005c | PUB_SYS power down config |
+| [AP_WAKEUP_POR_CFG #pmu_regs_ap_wakeup_por_cfg] | 0x0060 |  |
+| [XTL_WAIT_CNT #pmu_regs_xtl_wait_cnt] | 0x0070 |  |
+| [XTLBUF_WAIT_CNT #pmu_regs_xtlbuf_wait_cnt] | 0x0074 |  |
+| [PLL_WAIT_CNT1 #pmu_regs_pll_wait_cnt1] | 0x0078 |  |
+| [PLL_WAIT_CNT2 #pmu_regs_pll_wait_cnt2] | 0x007c |  |
+| [XTL0_REL_CFG #pmu_regs_xtl0_rel_cfg] | 0x0080 |  |
+| [XTL1_REL_CFG #pmu_regs_xtl1_rel_cfg] | 0x0084 |  |
+| [XTLBUF0_REL_CFG #pmu_regs_xtlbuf0_rel_cfg] | 0x008c |  |
+| [XTLBUF1_REL_CFG #pmu_regs_xtlbuf1_rel_cfg] | 0x0090 |  |
+| [MPLL_REL_CFG #pmu_regs_mpll_rel_cfg] | 0x0094 |  |
+| [DPLL_REL_CFG #pmu_regs_dpll_rel_cfg] | 0x0098 |  |
+| [LTEPLL_REL_CFG #pmu_regs_ltepll_rel_cfg] | 0x009c |  |
+| [TWPLL_REL_CFG #pmu_regs_twpll_rel_cfg] | 0x00a0 |  |
+| [LVDSDIS_PLL_REL_CFG #pmu_regs_lvdsdis_pll_rel_cfg] | 0x00a4 |  |
+| [CP_SOFT_RST #pmu_regs_cp_soft_rst] | 0x00b0 | Communication processor soft reset |
+| [CP_SLP_STATUS_DBG0 #pmu_regs_cp_slp_status_dbg0] | 0x00b4 |  |
+| [PWR_STATUS0_DBG #pmu_regs_pwr_status0_dbg] | 0x00bc |  |
+| [PWR_STATUS1_DBG #pmu_regs_pwr_status1_dbg] | 0x00c0 |  |
+| [PWR_STATUS2_DBG #pmu_regs_pwr_status2_dbg] | 0x00c4 |  |
+| [SLEEP_CTRL #pmu_regs_sleep_ctrl] | 0x00cc |  |
+| [DDR_SLEEP_CTRL #pmu_regs_ddr_sleep_ctrl] | 0x00d0 |  |
+| [SLEEP_STATUS #pmu_regs_sleep_status] | 0x00d4 |  |
+| [CA7_TOP_CFG #pmu_regs_ca7_top_cfg] | 0x00e4 |  |
+| [CA7_C0_CFG #pmu_regs_ca7_c0_cfg] | 0x00e8 |  |
+| [CA7_C1_CFG #pmu_regs_ca7_c1_cfg] | 0x00ec |  |
+| [CA7_C2_CFG #pmu_regs_ca7_c2_cfg] | 0x00f0 |  |
+| [CA7_C3_CFG #pmu_regs_ca7_c3_cfg] | 0x00f4 |  |
+| [DDR_CHN_SLEEP_CTRL0 #pmu_regs_ddr_chn_sleep_ctrl0] | 0x00f8 |  |
+| [DDR_CHN_SLEEP_CTRL1 #pmu_regs_ddr_chn_sleep_ctrl1] | 0x00fc |  |
+| [DDR_OP_MODE_CFG #pmu_regs_ddr_op_mode_cfg] | 0x012c |  |
+| [DDR_PHY_RET_CFG #pmu_regs_ddr_phy_ret_cfg] | 0x0130 |  |
+| [26M_SEL_CFG #pmu_regs_26m_sel_cfg] | 0x0134 |  |
+| [BISR_DONE_STATUS #pmu_regs_bisr_done_status] | 0x0138 |  |
+| [BISR_BUSY_STATUS #pmu_regs_bisr_busy_status] | 0x013c |  |
+| [BISR_BYP_CFG #pmu_regs_bisr_byp_cfg] | 0x0140 |  |
+| [BISR_EN_CFG #pmu_regs_bisr_en_cfg] | 0x0144 |  |
+| [CGM_AUTO_GATE_SEL_CFG0 #pmu_regs_cgm_auto_gate_sel_cfg0] | 0x0148 |  |
+| [CGM_AUTO_GATE_SEL_CFG1 #pmu_regs_cgm_auto_gate_sel_cfg1] | 0x014c |  |
+| [CGM_AUTO_GATE_SEL_CFG2 #pmu_regs_cgm_auto_gate_sel_cfg2] | 0x0150 |  |
+| [CGM_AUTO_GATE_SEL_CFG3 #pmu_regs_cgm_auto_gate_sel_cfg3] | 0x0154 |  |
+| [CGM_FORCE_EN_CFG0 #pmu_regs_cgm_force_en_cfg0] | 0x0158 |  |
+| [CGM_FORCE_EN_CFG1 #pmu_regs_cgm_force_en_cfg1] | 0x015c |  |
+| [CGM_FORCE_EN_CFG2 #pmu_regs_cgm_force_en_cfg2] | 0x0160 |  |
+| [CGM_FORCE_EN_CFG3 #pmu_regs_cgm_force_en_cfg3] | 0x0164 |  |
+| [SLEEP_XTLON_CTRL #pmu_regs_sleep_xtlon_ctrl] | 0x0168 |  |
+| [MEM_SLP_CFG #pmu_regs_mem_slp_cfg] | 0x016c |  |
+| [MEM_SD_CFG #pmu_regs_mem_sd_cfg] | 0x0170 |  |
+| [CA7_CORE_PU_LOCK #pmu_regs_ca7_core_pu_lock] | 0x0174 |  |
+| [ARM7_HOLD_CGM_EN #pmu_regs_arm7_hold_cgm_en] | 0x0178 |  |
+| [PWR_CNT_WAIT_CFG0 #pmu_regs_pwr_cnt_wait_cfg0] | 0x017c |  |
+| [PWR_CNT_WAIT_CFG1 #pmu_regs_pwr_cnt_wait_cfg1] | 0x0180 |  |
+| [RC0_REL_CFG #pmu_regs_rc0_rel_cfg] | 0x0184 |  |
+| [RC1_REL_CFG #pmu_regs_rc1_rel_cfg] | 0x0188 |  |
+| [RC_CNT_WAIT_CFG #pmu_regs_rc_cnt_wait_cfg] | 0x018c |  |
+| [MEM_AUTO_SLP_CFG #pmu_regs_mem_auto_slp_cfg] | 0x0190 |  |
+| [MEM_AUTO_SD_CFG #pmu_regs_mem_auto_sd_cfg] | 0x0194 |  |
+| [CP0_PD_SHUTDOWN_CFG #pmu_regs_cp0_pd_shutdown_cfg] | 0x0198 |  |
+| [CP1_PD_SHUTDOWN_CFG #pmu_regs_cp1_pd_shutdown_cfg] | 0x019c |  |
+| [WAKEUP_LOCK_EN #pmu_regs_wakeup_lock_en] | 0x01a0 |  |
+| [PD_CODEC_TOP_CFG #pmu_regs_pd_codec_top_cfg] | 0x01a4 |  |
+| [PD_CA7_C0_SHUTDOWN_MARK_STATUS #pmu_regs_pd_ca7_c0_shutdown_mark_status] | 0x3000 |  |
+| [PD_CA7_C1_SHUTDOWN_MARK_STATUS #pmu_regs_pd_ca7_c1_shutdown_mark_status] | 0x3004 |  |
+| [PD_CA7_C2_SHUTDOWN_MARK_STATUS #pmu_regs_pd_ca7_c2_shutdown_mark_status] | 0x3008 |  |
+| [PD_CA7_C3_SHUTDOWN_MARK_STATUS #pmu_regs_pd_ca7_c3_shutdown_mark_status] | 0x300c |  |
+| [PD_CA7_TOP_SHUTDOWN_MARK_STATUS #pmu_regs_pd_ca7_top_shutdown_mark_status] | 0x3010 |  |
+| [PD_AP_SYS_SHUTDOWN_MARK_STATUS #pmu_regs_pd_ap_sys_shutdown_mark_status] | 0x3014 |  |
+| [PD_GPU_TOP_SHUTDOWN_MARK_STATUS #pmu_regs_pd_gpu_top_shutdown_mark_status] | 0x3018 |  |
+| [PD_MM_TOP_SHUTDOWN_MARK_STATUS #pmu_regs_pd_mm_top_shutdown_mark_status] | 0x301c |  |
+| [PD_CP0_ARM9_0_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_arm9_0_shutdown_mark_status] | 0x3020 |  |
+| [PD_CP0_ARM9_1_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_arm9_1_shutdown_mark_status] | 0x3024 |  |
+| [PD_CP0_CEVA_0_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_ceva_0_shutdown_mark_status] | 0x3028 |  |
+| [PD_CP0_CEVA_1_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_ceva_1_shutdown_mark_status] | 0x302c |  |
+| [PD_CP0_GSM_0_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_gsm_0_shutdown_mark_status] | 0x3030 |  |
+| [PD_CP0_GSM_1_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_gsm_1_shutdown_mark_status] | 0x3034 |  |
+| [PD_CP0_TD_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_td_shutdown_mark_status] | 0x3038 |  |
+| [PD_CP0_HU3GE_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp0_hu3ge_shutdown_mark_status] | 0x303c |  |
+| [PD_CP1_CA5_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp1_ca5_shutdown_mark_status] | 0x3040 |  |
+| [PD_CP1_CEVA_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp1_ceva_shutdown_mark_status] | 0x3044 |  |
+| [PD_CP1_LTE_P1_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp1_lte_p1_shutdown_mark_status] | 0x3048 |  |
+| [PD_CP1_LTE_P2_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp1_lte_p2_shutdown_mark_status] | 0x304c |  |
+| [PD_CP1_COMWRAP_SHUTDOWN_MARK_STATUS #pmu_regs_pd_cp1_comwrap_shutdown_mark_status] | 0x3050 |  |
+| [PD_PUB_SYS_SHUTDOWN_MARK_STATUS #pmu_regs_pd_pub_sys_shutdown_mark_status] | 0x3054 |  |
+| [PD_CODEC_TOP_SHUTDOWN_MARK_STATUS #pmu_regs_pd_codec_top_shutdown_mark_status] | 0x3058 |  |
+
+
+=== PD_CA7_TOP_CFG (0x402b0000) ===[pmu_regs_pd_ca7_top_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| DBG_SHUTDOWN_EN | 28 | RW |  |
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CA7_C0_CFG (0x402b0004) ===[pmu_regs_pd_ca7_c0_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| WFI_SHUTDOWN_EN | 29 | RW |  |
+| DBG_SHUTDOWN_EN | 28 | RW |  |
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CA7_C1_CFG (0x402b0008) ===[pmu_regs_pd_ca7_c1_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| WFI_SHUTDOWN_EN | 29 | RW |  |
+| DBG_SHUTDOWN_EN | 28 | RW |  |
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CA7_C2_CFG (0x402b000c) ===[pmu_regs_pd_ca7_c2_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| WFI_SHUTDOWN_EN | 29 | RW |  |
+| DBG_SHUTDOWN_EN | 28 | RW |  |
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CA7_C3_CFG (0x402b0010) ===[pmu_regs_pd_ca7_c3_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| WFI_SHUTDOWN_EN | 29 | RW |  |
+| DBG_SHUTDOWN_EN | 28 | RW |  |
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_AP_SYS_CFG (0x402b0018) ===[pmu_regs_pd_ap_sys_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_MM_TOP_CFG (0x402b001c) ===[pmu_regs_pd_mm_top_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_GPU_TOP_CFG (0x402b0020) ===[pmu_regs_pd_gpu_top_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_ARM9_0_CFG (0x402b0024) ===[pmu_regs_pd_cp0_arm9_0_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_ARM9_1_CFG (0x402b0028) ===[pmu_regs_pd_cp0_arm9_1_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_HU3GE_CFG (0x402b002c) ===[pmu_regs_pd_cp0_hu3ge_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_GSM_0_CFG (0x402b0030) ===[pmu_regs_pd_cp0_gsm_0_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_GSM_1_CFG (0x402b0034) ===[pmu_regs_pd_cp0_gsm_1_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_TD_CFG (0x402b0038) ===[pmu_regs_pd_cp0_td_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_CEVA_0_CFG (0x402b003c) ===[pmu_regs_pd_cp0_ceva_0_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_CEVA_1_CFG (0x402b0040) ===[pmu_regs_pd_cp0_ceva_1_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP0_SYS_CFG (0x402b0044) ===[pmu_regs_pd_cp0_sys_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+
+=== PD_CP1_CA5_CFG (0x402b0048) ===[pmu_regs_pd_cp1_ca5_cfg]
+
+CP1 Cortex-A5 power down config
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP1_LTE_P1_CFG (0x402b004c) ===[pmu_regs_pd_cp1_lte_p1_cfg]
+
+CP1 LTE P1 power down config
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP1_LTE_P2_CFG (0x402b0050) ===[pmu_regs_pd_cp1_lte_p2_cfg]
+
+CP1 LTE P2 power down config
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP1_CEVA_CFG (0x402b0054) ===[pmu_regs_pd_cp1_ceva_cfg]
+
+CP1 CEVA DSP power down config
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CP1_COMWRAP_CFG (0x402b0058) ===[pmu_regs_pd_cp1_comwrap_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_PUB_SYS_CFG (0x402b005c) ===[pmu_regs_pd_pub_sys_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| FORCE_SHUTDOWN | 25 | RW |  |
+| AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PWR_ON_DLY | 23-16 | RW |  |
+| PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| ISO_ON_DLY | 7-0 | RW |  |
+
+=== AP_WAKEUP_POR_CFG (0x402b0060) ===[pmu_regs_ap_wakeup_por_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| AP_WAKEUP_POR_N | 0 | RW |  |
+
+=== XTL_WAIT_CNT (0x402b0070) ===[pmu_regs_xtl_wait_cnt]
+
+|| Symbol | Bit range | R/W | Description ||
+| XTL1_WAIT_CNT | 15-8 | RW |  |
+| XTL0_WAIT_CNT | 7-0 | RW |  |
+
+=== XTLBUF_WAIT_CNT (0x402b0074) ===[pmu_regs_xtlbuf_wait_cnt]
+
+|| Symbol | Bit range | R/W | Description ||
+| XTLBUF1_WAIT_CNT | 15-8 | RW |  |
+| XTLBUF0_WAIT_CNT | 7-0 | RW |  |
+
+=== PLL_WAIT_CNT1 (0x402b0078) ===[pmu_regs_pll_wait_cnt1]
+
+|| Symbol | Bit range | R/W | Description ||
+| LTEPLL_WAIT_CNT | 31-24 | RW |  |
+| TWPLL_WAIT_CNT | 23-16 | RW |  |
+| DPLL_WAIT_CNT | 15-8 | RW |  |
+| MPLL_WAIT_CNT | 7-0 | RW |  |
+
+=== PLL_WAIT_CNT2 (0x402b007c) ===[pmu_regs_pll_wait_cnt2]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDSDIS_PLL_WAIT_CNT | 7-0 | RW |  |
+
+=== XTL0_REL_CFG (0x402b0080) ===[pmu_regs_xtl0_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| XTL0_ARM7_SEL | 5 | RW |  |
+| XTL0_VCP1_SEL | 4 | RW |  |
+| XTL0_VCP0_SEL | 3 | RW |  |
+| XTL0_CP1_SEL | 2 | RW |  |
+| XTL0_CP0_SEL | 1 | RW |  |
+| XTL0_AP_SEL | 0 | RW |  |
+
+=== XTL1_REL_CFG (0x402b0084) ===[pmu_regs_xtl1_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| XTL1_ARM7_SEL | 5 | RW |  |
+| XTL1_VCP1_SEL | 4 | RW |  |
+| XTL1_VCP0_SEL | 3 | RW |  |
+| XTL1_CP1_SEL | 2 | RW |  |
+| XTL1_CP0_SEL | 1 | RW |  |
+| XTL1_AP_SEL | 0 | RW |  |
+
+=== XTLBUF0_REL_CFG (0x402b008c) ===[pmu_regs_xtlbuf0_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| XTLBUF0_ARM7_SEL | 5 | RW |  |
+| XTLBUF0_VCP1_SEL | 4 | RW |  |
+| XTLBUF0_VCP0_SEL | 3 | RW |  |
+| XTLBUF0_CP1_SEL | 2 | RW |  |
+| XTLBUF0_CP0_SEL | 1 | RW |  |
+| XTLBUF0_AP_SEL | 0 | RW |  |
+
+=== XTLBUF1_REL_CFG (0x402b0090) ===[pmu_regs_xtlbuf1_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| XTLBUF1_ARM7_SEL | 5 | RW |  |
+| XTLBUF1_VCP1_SEL | 4 | RW |  |
+| XTLBUF1_VCP0_SEL | 3 | RW |  |
+| XTLBUF1_CP1_SEL | 2 | RW |  |
+| XTLBUF1_CP0_SEL | 1 | RW |  |
+| XTLBUF1_AP_SEL | 0 | RW |  |
+
+=== MPLL_REL_CFG (0x402b0094) ===[pmu_regs_mpll_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| MPLL_REF_SEL | 8 | RW |  |
+| MPLL_ARM7_SEL | 5 | RW |  |
+| MPLL_VCP1_SEL | 4 | RW |  |
+| MPLL_VCP0_SEL | 3 | RW |  |
+| MPLL_CP1_SEL | 2 | RW |  |
+| MPLL_CP0_SEL | 1 | RW |  |
+| MPLL_AP_SEL | 0 | RW |  |
+
+=== DPLL_REL_CFG (0x402b0098) ===[pmu_regs_dpll_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| DPLL_REF_SEL | 8 | RW |  |
+| DPLL_ARM7_SEL | 5 | RW |  |
+| DPLL_VCP1_SEL | 4 | RW |  |
+| DPLL_VCP0_SEL | 3 | RW |  |
+| DPLL_CP1_SEL | 2 | RW |  |
+| DPLL_CP0_SEL | 1 | RW |  |
+| DPLL_AP_SEL | 0 | RW |  |
+
+=== LTEPLL_REL_CFG (0x402b009c) ===[pmu_regs_ltepll_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| LTEPLL_REF_SEL | 8 | RW |  |
+| LTEPLL_ARM7_SEL | 5 | RW |  |
+| LTEPLL_VCP1_SEL | 4 | RW |  |
+| LTEPLL_VCP0_SEL | 3 | RW |  |
+| LTEPLL_CP1_SEL | 2 | RW |  |
+| LTEPLL_CP0_SEL | 1 | RW |  |
+| LTEPLL_AP_SEL | 0 | RW |  |
+
+=== TWPLL_REL_CFG (0x402b00a0) ===[pmu_regs_twpll_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| TWPLL_REF_SEL | 8 | RW |  |
+| TWPLL_ARM7_SEL | 5 | RW |  |
+| TWPLL_VCP1_SEL | 4 | RW |  |
+| TWPLL_VCP0_SEL | 3 | RW |  |
+| TWPLL_CP1_SEL | 2 | RW |  |
+| TWPLL_CP0_SEL | 1 | RW |  |
+| TWPLL_AP_SEL | 0 | RW |  |
+
+=== LVDSDIS_PLL_REL_CFG (0x402b00a4) ===[pmu_regs_lvdsdis_pll_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDSDIS_PLL_REF_SEL | 8 | RW |  |
+| LVDSDIS_PLL_ARM7_SEL | 5 | RW |  |
+| LVDSDIS_PLL_VCP1_SEL | 4 | RW |  |
+| LVDSDIS_PLL_VCP0_SEL | 3 | RW |  |
+| LVDSDIS_PLL_CP1_SEL | 2 | RW |  |
+| LVDSDIS_PLL_CP0_SEL | 1 | RW |  |
+| LVDSDIS_PLL_AP_SEL | 0 | RW |  |
+
+=== CP_SOFT_RST (0x402b00b0) ===[pmu_regs_cp_soft_rst]
+
+Communication processor soft reset
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM7_SOFT_RST | 8 | RW |  |
+| PUB_SOFT_RST | 6 | RW |  |
+| AP_SOFT_RST | 5 | RW |  |
+| GPU_SOFT_RST | 4 | RW |  |
+| MM_SOFT_RST | 3 | RW |  |
+| CODEC_SOFT_RST | 2 | RW |  |
+| CP1_SOFT_RST | 1 | RW |  |
+| CP0_SOFT_RST | 0 | RW |  |
+
+=== CP_SLP_STATUS_DBG0 (0x402b00b4) ===[pmu_regs_cp_slp_status_dbg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP1_DEEP_SLP_DBG | 31-16 | R? |  |
+| CP0_DEEP_SLP_DBG | 15-0 | R? |  |
+
+=== PWR_STATUS0_DBG (0x402b00bc) ===[pmu_regs_pwr_status0_dbg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_MM_TOP_STATE | 31-28 | R? |  |
+| PD_GPU_TOP_STATE | 27-24 | R? |  |
+| PD_AP_SYS_STATE | 23-20 | R? |  |
+| PD_CA7_C3_STATE | 19-16 | R? |  |
+| PD_CA7_C2_STATE | 15-12 | R? |  |
+| PD_CA7_C1_STATE | 11-8 | R? |  |
+| PD_CA7_C0_STATE | 7-4 | R? |  |
+| PD_CA7_TOP_STATE | 3-0 | R? |  |
+
+=== PWR_STATUS1_DBG (0x402b00c0) ===[pmu_regs_pwr_status1_dbg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_CEVA_1_STATE | 31-28 | R? |  |
+| PD_CP0_CEVA_0_STATE | 27-24 | R? |  |
+| PD_CP0_GSM_0_STATE | 23-20 | R? |  |
+| PD_CP0_GSM_1_STATE | 19-16 | R? |  |
+| PD_CP0_HU3GE_STATE | 15-12 | R? |  |
+| PD_CP0_ARM9_1_STATE | 11-8 | R? |  |
+| PD_CP0_ARM9_0_STATE | 7-4 | R? |  |
+| PD_CP0_TD_STATE | 3-0 | R? |  |
+
+=== PWR_STATUS2_DBG (0x402b00c4) ===[pmu_regs_pwr_status2_dbg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_PUB_SYS_STATE | 27-24 | R? |  |
+| PD_CP1_COMWRAP_STATE | 23-20 | R? |  |
+| PD_CP1_LTE_P2_STATE | 19-16 | R? |  |
+| PD_CP1_LTE_P1_STATE | 15-12 | R? |  |
+| PD_CP1_CEVA_STATE | 11-8 | R? |  |
+| PD_CP1_CA5_STATE | 7-4 | R? |  |
+
+=== SLEEP_CTRL (0x402b00cc) ===[pmu_regs_sleep_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| VCP1_FORCE_LIGHT_SLEEP | 28 | RW |  |
+| VCP0_FORCE_LIGHT_SLEEP | 27 | RW |  |
+| CP1_FORCE_LIGHT_SLEEP | 26 | RW |  |
+| CP0_FORCE_LIGHT_SLEEP | 25 | RW |  |
+| AP_FORCE_LIGHT_SLEEP | 24 | RW |  |
+| ARM7_FORCE_DEEP_SLEEP | 21 | RW |  |
+| VCP1_FORCE_DEEP_SLEEP | 20 | RW |  |
+| VCP0_FORCE_DEEP_SLEEP | 19 | RW |  |
+| CP1_FORCE_DEEP_SLEEP | 18 | RW |  |
+| CP0_FORCE_DEEP_SLEEP | 17 | RW |  |
+| AP_FORCE_DEEP_SLEEP | 16 | RW |  |
+| VCP1_LIGHT_SLEEP | 12 | RW |  |
+| VCP0_LIGHT_SLEEP | 11 | RW |  |
+| CP1_LIGHT_SLEEP | 10 | RW |  |
+| CP0_LIGHT_SLEEP | 9 | RW |  |
+| AP_LIGHT_SLEEP | 8 | RW |  |
+| VCP1_DEEP_SLEEP | 4 | RW |  |
+| VCP0_DEEP_SLEEP | 3 | RW |  |
+| CP1_DEEP_SLEEP | 2 | RW |  |
+| CP0_DEEP_SLEEP | 1 | RW |  |
+| AP_DEEP_SLEEP | 0 | RW |  |
+
+=== DDR_SLEEP_CTRL (0x402b00d0) ===[pmu_regs_ddr_sleep_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| BUSY_TRANSFER_HWDATA_SEL | 16 | RW |  |
+| DDR_PUBL_APB_SOFT_RST | 12 | RW |  |
+| DDR_UMCTL_APB_SOFT_RST | 11 | RW |  |
+| DDR_PUBL_SOFT_RST | 10 | RW |  |
+| DDR_PHY_SOFT_RST | 8 | RW |  |
+| DDR_PHY_AUTO_GATE_EN | 6 | RW |  |
+| DDR_PUBL_AUTO_GATE_EN | 5 | RW |  |
+| DDR_UMCTL_AUTO_GATE_EN | 4 | RW |  |
+| DDR_PHY_EB | 2 | RW |  |
+| DDR_UMCTL_EB | 1 | RW |  |
+| DDR_PUBL_EB | 0 | RW |  |
+
+=== SLEEP_STATUS (0x402b00d4) ===[pmu_regs_sleep_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM7_SLP_STATUS | 23-20 | R? |  |
+| VCP1_SLP_STATUS | 19-16 | R? |  |
+| VCP0_SLP_STATUS | 15-12 | R? |  |
+| CP1_SLP_STATUS | 11-8 | R? |  |
+| CP0_SLP_STATUS | 7-4 | R? |  |
+| AP_SLP_STATUS | 3-0 | R? |  |
+
+=== CA7_TOP_CFG (0x402b00e4) ===[pmu_regs_ca7_top_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_L2RSTDISABLE | 0 | RW |  |
+
+=== CA7_C0_CFG (0x402b00e8) ===[pmu_regs_ca7_c0_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_VINITHI_C0 | 0 | RW |  |
+
+=== CA7_C1_CFG (0x402b00ec) ===[pmu_regs_ca7_c1_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_VINITHI_C1 | 0 | RW |  |
+
+=== CA7_C2_CFG (0x402b00f0) ===[pmu_regs_ca7_c2_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_VINITHI_C2 | 0 | RW |  |
+
+=== CA7_C3_CFG (0x402b00f4) ===[pmu_regs_ca7_c3_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_VINITHI_C3 | 0 | RW |  |
+
+=== DDR_CHN_SLEEP_CTRL0 (0x402b00f8) ===[pmu_regs_ddr_chn_sleep_ctrl0]
+
+|| Symbol | Bit range | R/W | Description ||
+| DDR_CTRL_AXI_LP_EN | 31 | RW |  |
+| DDR_CTRL_CGM_SEL | 30 | RW |  |
+| DDR_CHN9_AXI_LP_EN | 25 | RW |  |
+| DDR_CHN8_AXI_LP_EN | 24 | RW |  |
+| DDR_CHN7_AXI_LP_EN | 23 | RW |  |
+| DDR_CHN6_AXI_LP_EN | 22 | RW |  |
+| DDR_CHN5_AXI_LP_EN | 21 | RW |  |
+| DDR_CHN4_AXI_LP_EN | 20 | RW |  |
+| DDR_CHN3_AXI_LP_EN | 19 | RW |  |
+| DDR_CHN2_AXI_LP_EN | 18 | RW |  |
+| DDR_CHN1_AXI_LP_EN | 17 | RW |  |
+| DDR_CHN0_AXI_LP_EN | 16 | RW |  |
+| DDR_CHN9_CGM_SEL | 9 | RW |  |
+| DDR_CHN8_CGM_SEL | 8 | RW |  |
+| DDR_CHN7_CGM_SEL | 7 | RW |  |
+| DDR_CHN6_CGM_SEL | 6 | RW |  |
+| DDR_CHN5_CGM_SEL | 5 | RW |  |
+| DDR_CHN4_CGM_SEL | 4 | RW |  |
+| DDR_CHN3_CGM_SEL | 3 | RW |  |
+| DDR_CHN2_CGM_SEL | 2 | RW |  |
+| DDR_CHN1_CGM_SEL | 1 | RW |  |
+| DDR_CHN0_CGM_SEL | 0 | RW |  |
+
+=== DDR_CHN_SLEEP_CTRL1 (0x402b00fc) ===[pmu_regs_ddr_chn_sleep_ctrl1]
+
+|| Symbol | Bit range | R/W | Description ||
+| DDR_CHN9_AXI_STOP_SEL | 9 | RW |  |
+| DDR_CHN8_AXI_STOP_SEL | 8 | RW |  |
+| DDR_CHN7_AXI_STOP_SEL | 7 | RW |  |
+| DDR_CHN6_AXI_STOP_SEL | 6 | RW |  |
+| DDR_CHN5_AXI_STOP_SEL | 5 | RW |  |
+| DDR_CHN4_AXI_STOP_SEL | 4 | RW |  |
+| DDR_CHN3_AXI_STOP_SEL | 3 | RW |  |
+| DDR_CHN2_AXI_STOP_SEL | 2 | RW |  |
+| DDR_CHN1_AXI_STOP_SEL | 1 | RW |  |
+| DDR_CHN0_AXI_STOP_SEL | 0 | RW |  |
+
+=== DDR_OP_MODE_CFG (0x402b012c) ===[pmu_regs_ddr_op_mode_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| DDR_OPERATE_MODE_BUSY | 28 | R |  |
+| DDR_PUBL_RET_EN | 27 | RW |  |
+| DDR_PHY_ISO_RST_EN | 26 | RW |  |
+| DDR_UMCTL_RET_EN | 25 | RW |  |
+| DDR_PHY_AUTO_RET_EN | 24 | RW |  |
+| DDR_OPERATE_MODE_CNT_LMT | 23-16 | RW |  |
+| DDR_OPERATE_MODE | 10-8 | RW |  |
+| DDR_OPERATE_MODE_IDLE | 2-0 | RW |  |
+
+=== DDR_PHY_RET_CFG (0x402b0130) ===[pmu_regs_ddr_phy_ret_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| DDR_UMCTL_SOFT_RST | 16 | RW |  |
+| DDR_PHY_CKE_RET_EN | 0 | RW |  |
+
+=== 26M_SEL_CFG (0x402b0134) ===[pmu_regs_26m_sel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| AON_RC_4M_SEL | 8 | RW |  |
+| GGE_26M_SEL | 6 | RW |  |
+| PUB_26M_SEL | 5 | RW |  |
+| AON_26M_SEL | 4 | RW |  |
+| CP1_26M_SEL | 2 | RW |  |
+| CP0_26M_SEL | 1 | RW |  |
+| AP_26M_SEL | 0 | RW |  |
+
+=== BISR_DONE_STATUS (0x402b0138) ===[pmu_regs_bisr_done_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_COMWRAP_BISR_DONE | 21 | R |  |
+| PD_CP1_LTE_P2_BISR_DONE | 20 | R |  |
+| PD_CP1_LTE_P1_BISR_DONE | 19 | R |  |
+| PD_CP1_CEVA_BISR_DONE | 18 | R |  |
+| PD_CP1_CA5_BISR_DONE | 17 | R |  |
+| PD_CODEC_TOP_BISR_DONE | 16 | R |  |
+| PD_CP0_HU3GE_BISR_DONE | 15 | R |  |
+| PD_CP0_TD_BISR_DONE | 14 | R |  |
+| PD_CP0_GSM_1_BISR_DONE | 13 | R |  |
+| PD_CP0_GSM_0_BISR_DONE | 12 | R |  |
+| PD_CP0_CEVA_1_BISR_DONE | 11 | R |  |
+| PD_CP0_CEVA_0_BISR_DONE | 10 | R |  |
+| PD_CP0_ARM9_1_BISR_DONE | 9 | R |  |
+| PD_CP0_ARM9_0_BISR_DONE | 8 | R |  |
+| PD_MM_TOP_BISR_DONE | 7 | R |  |
+| PD_GPU_TOP_BISR_DONE | 6 | R |  |
+| PD_AP_SYS_BISR_DONE | 5 | R |  |
+| PD_CA7_TOP_BISR_DONE | 4 | R |  |
+| PD_CA7_C3_BISR_DONE | 3 | R |  |
+| PD_CA7_C2_BISR_DONE | 2 | R |  |
+| PD_CA7_C1_BISR_DONE | 1 | R |  |
+| PD_CA7_C0_BISR_DONE | 0 | R |  |
+
+=== BISR_BUSY_STATUS (0x402b013c) ===[pmu_regs_bisr_busy_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_COMWRAP_BISR_BUSY | 21 | R |  |
+| PD_CP1_LTE_P2_BISR_BUSY | 20 | R |  |
+| PD_CP1_LTE_P1_BISR_BUSY | 19 | R |  |
+| PD_CP1_CEVA_BISR_BUSY | 18 | R |  |
+| PD_CP1_CA5_BISR_BUSY | 17 | R |  |
+| PD_CODEC_TOP_BISR_BUSY | 16 | R |  |
+| PD_CP0_HU3GE_BISR_BUSY | 15 | R |  |
+| PD_CP0_TD_BISR_BUSY | 14 | R |  |
+| PD_CP0_GSM_1_BISR_BUSY | 13 | R |  |
+| PD_CP0_GSM_0_BISR_BUSY | 12 | R |  |
+| PD_CP0_CEVA_1_BISR_BUSY | 11 | R |  |
+| PD_CP0_CEVA_0_BISR_BUSY | 10 | R |  |
+| PD_CP0_ARM9_1_BISR_BUSY | 9 | R |  |
+| PD_CP0_ARM9_0_BISR_BUSY | 8 | R |  |
+| PD_MM_TOP_BISR_BUSY | 7 | R |  |
+| PD_GPU_TOP_BISR_BUSY | 6 | R |  |
+| PD_AP_SYS_BISR_BUSY | 5 | R |  |
+| PD_CA7_TOP_BISR_BUSY | 4 | R |  |
+| PD_CA7_C3_BISR_BUSY | 3 | R |  |
+| PD_CA7_C2_BISR_BUSY | 2 | R |  |
+| PD_CA7_C1_BISR_BUSY | 1 | R |  |
+| PD_CA7_C0_BISR_BUSY | 0 | R |  |
+
+=== BISR_BYP_CFG (0x402b0140) ===[pmu_regs_bisr_byp_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_COMWRAP_BISR_FORCE_BYP | 21 | RW |  |
+| PD_CP1_LTE_P2_BISR_FORCE_BYP | 20 | RW |  |
+| PD_CP1_LTE_P1_BISR_FORCE_BYP | 19 | RW |  |
+| PD_CP1_CEVA_BISR_FORCE_BYP | 18 | RW |  |
+| PD_CP1_CA5_BISR_FORCE_BYP | 17 | RW |  |
+| PD_CODEC_TOP_BISR_FORCE_BYP | 16 | RW |  |
+| PD_CP0_HU3GE_BISR_FORCE_BYP | 15 | RW |  |
+| PD_CP0_TD_BISR_FORCE_BYP | 14 | RW |  |
+| PD_CP0_GSM_1_BISR_FORCE_BYP | 13 | RW |  |
+| PD_CP0_GSM_0_BISR_FORCE_BYP | 12 | RW |  |
+| PD_CP0_CEVA_1_BISR_FORCE_BYP | 11 | RW |  |
+| PD_CP0_CEVA_0_BISR_FORCE_BYP | 10 | RW |  |
+| PD_CP0_ARM9_1_BISR_FORCE_BYP | 9 | RW |  |
+| PD_CP0_ARM9_0_BISR_FORCE_BYP | 8 | RW |  |
+| PD_MM_TOP_BISR_FORCE_BYP | 7 | RW |  |
+| PD_GPU_TOP_BISR_FORCE_BYP | 6 | RW |  |
+| PD_AP_SYS_BISR_FORCE_BYP | 5 | RW |  |
+| PD_CA7_TOP_BISR_FORCE_BYP | 4 | RW |  |
+| PD_CA7_C3_BISR_FORCE_BYP | 3 | RW |  |
+| PD_CA7_C2_BISR_FORCE_BYP | 2 | RW |  |
+| PD_CA7_C1_BISR_FORCE_BYP | 1 | RW |  |
+| PD_CA7_C0_BISR_FORCE_BYP | 0 | RW |  |
+
+=== BISR_EN_CFG (0x402b0144) ===[pmu_regs_bisr_en_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_COMWRAP_BISR_FORCE_EN | 21 | RW |  |
+| PD_CP1_LTE_P2_BISR_FORCE_EN | 20 | RW |  |
+| PD_CP1_LTE_P1_BISR_FORCE_EN | 19 | RW |  |
+| PD_CP1_CEVA_BISR_FORCE_EN | 18 | RW |  |
+| PD_CP1_CA5_BISR_FORCE_EN | 17 | RW |  |
+| PD_CODEC_TOP_BISR_FORCE_EN | 16 | RW |  |
+| PD_CP0_HU3GE_BISR_FORCE_EN | 15 | RW |  |
+| PD_CP0_TD_BISR_FORCE_EN | 14 | RW |  |
+| PD_CP0_GSM_1_BISR_FORCE_EN | 13 | RW |  |
+| PD_CP0_GSM_0_BISR_FORCE_EN | 12 | RW |  |
+| PD_CP0_CEVA_1_BISR_FORCE_EN | 11 | RW |  |
+| PD_CP0_CEVA_0_BISR_FORCE_EN | 10 | RW |  |
+| PD_CP0_ARM9_1_BISR_FORCE_EN | 9 | RW |  |
+| PD_CP0_ARM9_0_BISR_FORCE_EN | 8 | RW |  |
+| PD_MM_TOP_BISR_FORCE_EN | 7 | RW |  |
+| PD_GPU_TOP_BISR_FORCE_EN | 6 | RW |  |
+| PD_AP_SYS_BISR_FORCE_EN | 5 | RW |  |
+| PD_CA7_TOP_BISR_FORCE_EN | 4 | RW |  |
+| PD_CA7_C3_BISR_FORCE_EN | 3 | RW |  |
+| PD_CA7_C2_BISR_FORCE_EN | 2 | RW |  |
+| PD_CA7_C1_BISR_FORCE_EN | 1 | RW |  |
+| PD_CA7_C0_BISR_FORCE_EN | 0 | RW |  |
+
+=== CGM_AUTO_GATE_SEL_CFG0 (0x402b0148) ===[pmu_regs_cgm_auto_gate_sel_cfg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_AUTO_GATE_SEL_CFG0 | 31-0 | RW |  |
+
+=== CGM_AUTO_GATE_SEL_CFG1 (0x402b014c) ===[pmu_regs_cgm_auto_gate_sel_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_AUTO_GATE_SEL_CFG1 | 31-0 | RW |  |
+
+=== CGM_AUTO_GATE_SEL_CFG2 (0x402b0150) ===[pmu_regs_cgm_auto_gate_sel_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_AUTO_GATE_SEL_CFG2 | 31-0 | RW |  |
+
+=== CGM_AUTO_GATE_SEL_CFG3 (0x402b0154) ===[pmu_regs_cgm_auto_gate_sel_cfg3]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_AUTO_GATE_SEL_CFG3 | 31-0 | RW |  |
+
+=== CGM_FORCE_EN_CFG0 (0x402b0158) ===[pmu_regs_cgm_force_en_cfg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_FORCE_EN_CFG0 | 31-0 | RW |  |
+
+=== CGM_FORCE_EN_CFG1 (0x402b015c) ===[pmu_regs_cgm_force_en_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_FORCE_EN_CFG1 | 31-0 | RW |  |
+
+=== CGM_FORCE_EN_CFG2 (0x402b0160) ===[pmu_regs_cgm_force_en_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_FORCE_EN_CFG2 | 31-0 | RW |  |
+
+=== CGM_FORCE_EN_CFG3 (0x402b0164) ===[pmu_regs_cgm_force_en_cfg3]
+
+|| Symbol | Bit range | R/W | Description ||
+| CGM_FORCE_EN_CFG3 | 31-0 | RW |  |
+
+=== SLEEP_XTLON_CTRL (0x402b0168) ===[pmu_regs_sleep_xtlon_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM7_SLEEP_XTL_ON | 5 | RW |  |
+| VCP1_SLEEP_XTL_ON | 4 | RW |  |
+| VCP0_SLEEP_XTL_ON | 3 | RW |  |
+| CP1_SLEEP_XTL_ON | 2 | RW |  |
+| CP0_SLEEP_XTL_ON | 1 | RW |  |
+| AP_SLEEP_XTL_ON | 0 | RW |  |
+
+=== MEM_SLP_CFG (0x402b016c) ===[pmu_regs_mem_slp_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| MEM_SLP_CFG | 31-0 | RW |  |
+
+=== MEM_SD_CFG (0x402b0170) ===[pmu_regs_mem_sd_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| MEM_SD_CFG | 31-0 | RW |  |
+
+=== CA7_CORE_PU_LOCK (0x402b0174) ===[pmu_regs_ca7_core_pu_lock]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA7_C3_GIC_WAKEUP_EN | 11 | RW |  |
+| CA7_C2_GIC_WAKEUP_EN | 10 | RW |  |
+| CA7_C1_GIC_WAKEUP_EN | 9 | RW |  |
+| CA7_C0_GIC_WAKEUP_EN | 8 | RW |  |
+| CA7_C3_PU_LOCK | 3 | RW |  |
+| CA7_C2_PU_LOCK | 2 | RW |  |
+| CA7_C1_PU_LOCK | 1 | RW |  |
+| CA7_C0_PU_LOCK | 0 | RW |  |
+
+=== ARM7_HOLD_CGM_EN (0x402b0178) ===[pmu_regs_arm7_hold_cgm_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_CEVA_CGM_HOLD_EN | 10 | RW |  |
+| PD_CP1_CA5_CGM_HOLD_EN | 9 | RW |  |
+| PD_CP0_CEVA_1_CGM_HOLD_EN | 8 | RW |  |
+| PD_CP0_CEVA_0_CGM_HOLD_EN | 7 | RW |  |
+| PD_CP0_ARM9_1_CGM_HOLD_EN | 6 | RW |  |
+| PD_CP0_ARM9_0_CGM_HOLD_EN | 5 | RW |  |
+| PD_CA7_TOP_CMG_HOLD_EN | 4 | RW |  |
+| PD_CA7_C3_CMG_HOLD_EN | 3 | RW |  |
+| PD_CA7_C2_CMG_HOLD_EN | 2 | RW |  |
+| PD_CA7_C1_CMG_HOLD_EN | 1 | RW |  |
+| PD_CA7_C0_CMG_HOLD_EN | 0 | RW |  |
+
+=== PWR_CNT_WAIT_CFG0 (0x402b017c) ===[pmu_regs_pwr_cnt_wait_cfg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| VCP0_PWR_WAIT_CNT | 31-24 | RW |  |
+| CP1_PWR_WAIT_CNT | 23-16 | RW |  |
+| CP0_PWR_WAIT_CNT | 15-8 | RW |  |
+| AP_PWR_WAIT_CNT | 7-0 | RW |  |
+
+=== PWR_CNT_WAIT_CFG1 (0x402b0180) ===[pmu_regs_pwr_cnt_wait_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM7_PWR_WAIT_CNT | 15-8 | RW |  |
+| VCP1_PWR_WAIT_CNT | 7-0 | RW |  |
+
+=== RC0_REL_CFG (0x402b0184) ===[pmu_regs_rc0_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| RC0_ARM7_SEL | 5 | RW |  |
+| RC0_VCP1_SEL | 4 | RW |  |
+| RC0_VCP0_SEL | 3 | RW |  |
+| RC0_CP1_SEL | 2 | RW |  |
+| RC0_CP0_SEL | 1 | RW |  |
+| RC0_AP_SEL | 0 | RW |  |
+
+=== RC1_REL_CFG (0x402b0188) ===[pmu_regs_rc1_rel_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| RC1_ARM7_SEL | 5 | RW |  |
+| RC1_VCP1_SEL | 4 | RW |  |
+| RC1_VCP0_SEL | 3 | RW |  |
+| RC1_CP1_SEL | 2 | RW |  |
+| RC1_CP0_SEL | 1 | RW |  |
+| RC1_AP_SEL | 0 | RW |  |
+
+=== RC_CNT_WAIT_CFG (0x402b018c) ===[pmu_regs_rc_cnt_wait_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| RC1_WAIT_CNT | 15-8 | RW |  |
+| RC0_WAIT_CNT | 7-0 | RW |  |
+
+=== MEM_AUTO_SLP_CFG (0x402b0190) ===[pmu_regs_mem_slp_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| MEM_AUTO_SLP_EN | 31-0 | RW |  |
+
+=== MEM_AUTO_SD_CFG (0x402b0194) ===[pmu_regs_mem_sd_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| MEM_AUTO_SD_EN | 31-0 | RW |  |
+
+=== CP0_PD_SHUTDOWN_CFG (0x402b0198) ===[pmu_regs_cp0_pd_shutdown_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_HU3GE_VCP1_SEL | 20 | RW |  |
+| PD_CP0_TD_VCP1_SEL | 19 | RW |  |
+| PD_CP0_GSM_0_VCP1_SEL | 18 | RW |  |
+| PD_CP0_CEVA_0_VCP1_SEL | 17 | RW |  |
+| PD_CP0_ARM9_1_VCP1_SEL | 16 | RW |  |
+| PD_CP0_ARM9_0_VCP0_SEL | 8 | RW |  |
+| PD_CP0_HU3GE_CP0_SEL | 5 | RW |  |
+| PD_CP0_TD_CP0_SEL | 4 | RW |  |
+| PD_CP0_GSM_0_CP0_SEL | 3 | RW |  |
+| PD_CP0_CEVA_0_CP0_SEL | 2 | RW |  |
+| PD_CP0_ARM9_1_CP0_SEL | 1 | RW |  |
+| PD_CP0_ARM9_0_CP0_SEL | 0 | RW |  |
+
+=== CP1_PD_SHUTDOWN_CFG (0x402b019c) ===[pmu_regs_cp1_pd_shutdown_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_COMWRAP_VCP1_SEL | 20 | RW |  |
+| PD_CP1_CEVA_VCP1_SEL | 19 | RW |  |
+| PD_CP1_LTE_P2_VCP1_SEL | 18 | RW |  |
+| PD_CP1_LTE_P1_VCP1_SEL | 17 | RW |  |
+| PD_CP1_CA5_VCP1_SEL | 16 | RW |  |
+| PD_CP1_COMWRAP_CP1_SEL | 4 | RW |  |
+| PD_CP1_CEVA_CP1_SEL | 3 | RW |  |
+| PD_CP1_LTE_P2_CP1_SEL | 2 | RW |  |
+| PD_CP1_LTE_P1_CP1_SEL | 1 | RW |  |
+| PD_CP1_CA5_CP1_SEL | 0 | RW |  |
+
+=== WAKEUP_LOCK_EN (0x402b01a0) ===[pmu_regs_wakeup_lock_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| VCP1_SYS_WAKEUP_LOCK_EN | 26 | RW |  |
+| VCP0_SYS_WAKEUP_LOCK_EN | 25 | RW |  |
+| CP1_SYS_WAKEUP_LOCK_EN | 24 | RW |  |
+| CP0_SYS_WAKEUP_LOCK_EN | 23 | RW |  |
+| AP_SYS_WAKEUP_LOCK_EN | 22 | RW |  |
+| PD_PUB_SYS_WAKEUP_LOCK_EN | 21 | RW |  |
+| PD_CP1_COMWRAP_WAKEUP_LOCK_EN | 20 | RW |  |
+| PD_CP1_CEVA_WAKEUP_LOCK_EN | 19 | RW |  |
+| PD_CP1_LTE_P2_WAKEUP_LOCK_EN | 18 | RW |  |
+| PD_CP1_LTE_P1_WAKEUP_LOCK_EN | 17 | RW |  |
+| PD_CP1_CA5_WAKEUP_LOCK_EN | 16 | RW |  |
+| PD_CP0_CEVA_1_WAKEUP_LOCK_EN | 15 | RW |  |
+| PD_CP0_CEVA_0_WAKEUP_LOCK_EN | 14 | RW |  |
+| PD_CP0_TD_WAKEUP_LOCK_EN | 13 | RW |  |
+| PD_CP0_GSM_1_WAKEUP_LOCK_EN | 12 | RW |  |
+| PD_CP0_GSM_0_WAKEUP_LOCK_EN | 11 | RW |  |
+| PD_CP0_HU3GE_WAKEUP_LOCK_EN | 10 | RW |  |
+| PD_CP0_ARM9_1_WAKEUP_LOCK_EN | 9 | RW |  |
+| PD_CP0_ARM9_0_WAKEUP_LOCK_EN | 8 | RW |  |
+| PD_MM_TOP_WAKEUP_LOCK_EN | 7 | RW |  |
+| PD_GPU_TOP_WAKEUP_LOCK_EN | 6 | RW |  |
+| PD_AP_SYS_WAKEUP_LOCK_EN | 5 | RW |  |
+| PD_CA7_TOP_WAKEUP_LOCK_EN | 4 | RW |  |
+| PD_CA7_C3_WAKEUP_LOCK_EN | 3 | RW |  |
+| PD_CA7_C2_WAKEUP_LOCK_EN | 2 | RW |  |
+| PD_CA7_C1_WAKEUP_LOCK_EN | 1 | RW |  |
+| PD_CA7_C0_WAKEUP_LOCK_EN | 0 | RW |  |
+
+=== PD_CODEC_TOP_CFG (0x402b01a4) ===[pmu_regs_pd_codec_top_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CODEC_TOP_FORCE_SHUTDOWN | 25 | RW |  |
+| PD_CODEC_TOP_AUTO_SHUTDOWN_EN | 24 | RW |  |
+| PD_CODEC_TOP_PWR_ON_DLY | 23-16 | RW |  |
+| PD_CODEC_TOP_PWR_ON_SEQ_DLY | 15-8 | RW |  |
+| PD_CODEC_TOP_ISO_ON_DLY | 7-0 | RW |  |
+
+=== PD_CA7_C0_SHUTDOWN_MARK_STATUS (0x402b3000) ===[pmu_regs_pd_ca7_c0_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CA7_C0_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CA7_C1_SHUTDOWN_MARK_STATUS (0x402b3004) ===[pmu_regs_pd_ca7_c1_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CA7_C1_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CA7_C2_SHUTDOWN_MARK_STATUS (0x402b3008) ===[pmu_regs_pd_ca7_c2_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CA7_C2_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CA7_C3_SHUTDOWN_MARK_STATUS (0x402b300c) ===[pmu_regs_pd_ca7_c3_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CA7_C3_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CA7_TOP_SHUTDOWN_MARK_STATUS (0x402b3010) ===[pmu_regs_pd_ca7_top_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CA7_TOP_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_AP_SYS_SHUTDOWN_MARK_STATUS (0x402b3014) ===[pmu_regs_pd_ap_sys_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_AP_SYS_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_GPU_TOP_SHUTDOWN_MARK_STATUS (0x402b3018) ===[pmu_regs_pd_gpu_top_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_GPU_TOP_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_MM_TOP_SHUTDOWN_MARK_STATUS (0x402b301c) ===[pmu_regs_pd_mm_top_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_MM_TOP_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_ARM9_0_SHUTDOWN_MARK_STATUS (0x402b3020) ===[pmu_regs_pd_cp0_arm9_0_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_ARM9_0_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_ARM9_1_SHUTDOWN_MARK_STATUS (0x402b3024) ===[pmu_regs_pd_cp0_arm9_1_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_ARM9_1_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_CEVA_0_SHUTDOWN_MARK_STATUS (0x402b3028) ===[pmu_regs_pd_cp0_ceva_0_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_CEVA_0_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_CEVA_1_SHUTDOWN_MARK_STATUS (0x402b302c) ===[pmu_regs_pd_cp0_ceva_1_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_CEVA_1_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_GSM_0_SHUTDOWN_MARK_STATUS (0x402b3030) ===[pmu_regs_pd_cp0_gsm_0_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_GSM_0_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_GSM_1_SHUTDOWN_MARK_STATUS (0x402b3034) ===[pmu_regs_pd_cp0_gsm_1_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_GSM_1_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_TD_SHUTDOWN_MARK_STATUS (0x402b3038) ===[pmu_regs_pd_cp0_td_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_TD_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP0_HU3GE_SHUTDOWN_MARK_STATUS (0x402b303c) ===[pmu_regs_pd_cp0_hu3ge_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP0_HU3GE_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP1_CEVA_SHUTDOWN_MARK_STATUS (0x402b3040) ===[pmu_regs_pd_cp1_ceva_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_CA5_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP1_CEVA_SHUTDOWN_MARK_STATUS (0x402b3044) ===[pmu_regs_pd_cp1_ceva_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_CEVA_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP1_LTE_P1_SHUTDOWN_MARK_STATUS (0x402b3048) ===[pmu_regs_pd_cp1_lte_p1_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_LTE_P1_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP1_LTE_P2_SHUTDOWN_MARK_STATUS (0x402b304c) ===[pmu_regs_pd_cp1_lte_p2_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_LTE_P2_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CP1_COMWRAP_SHUTDOWN_MARK_STATUS (0x402b3050) ===[pmu_regs_pd_cp1_comwrap_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CP1_COMWRAP_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_PUB_SYS_SHUTDOWN_MARK_STATUS (0x402b3054) ===[pmu_regs_pd_pub_sys_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_PUB_SYS_SHUTDOWN_MARK | 3-0 | R |  |
+
+=== PD_CODEC_TOP_SHUTDOWN_MARK_STATUS (0x402b3058) ===[pmu_regs_pd_codec_top_shutdown_mark_status]
+
+|| Symbol | Bit range | R/W | Description ||
+| PD_CODEC_TOP_SHUTDOWN_MARK | 3-0 | R |  |
+

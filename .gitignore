@@ -1,0 +1,5 @@
+*
+!.gitignore
+!*.t2t
+!Makefile
+!README

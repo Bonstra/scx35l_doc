@@ -1,0 +1,822 @@
+
+= AON APB control =[aonapb]
+
+|| Base address ||
+| 0x402e0000 |
+
+== Registers ==[aonapb_regs]
+
+|| Symbol | Offset | Description ||
+| [APB_EB0 #aonapb_regs_apb_eb0] | 0x0000 | APB enable bits 0 |
+| [APB_EB1 #aonapb_regs_apb_eb1] | 0x0004 | APB enable bits 1 |
+| [APB_RST0 #aonapb_regs_apb_rst0] | 0x0008 | APB reset 0 |
+| [APB_RST1 #aonapb_regs_apb_rst1] | 0x000c | APB reset 1 |
+| [APB_RTC_EB #aonapb_regs_apb_rtc_eb] | 0x0010 | APB RTC enable bits 0 |
+| [REC_26MHZ_BUF_CFG #aonapb_regs_rec_26mhz_buf_cfg] | 0x0014 |  |
+| [SINDRV_CTRL #aonapb_regs_sindrv_ctrl] | 0x0018 |  |
+| [ADA_SEL_CTRL #aonapb_regs_ada_sel_ctrl] | 0x001c |  |
+| [VBC_CTRL #aonapb_regs_vbc_ctrl] | 0x0020 |  |
+| [PWR_CTRL #aonapb_regs_pwr_ctrl] | 0x0024 |  |
+| [TS_CFG #aonapb_regs_ts_cfg] | 0x0028 |  |
+| [BOOT_MODE #aonapb_regs_boot_mode] | 0x002c |  |
+| [BB_BG_CTRL #aonapb_regs_bb_bg_ctrl] | 0x0030 |  |
+| [CP_ARM_JTAG_CTRL #aonapb_regs_cp_arm_jtag_ctrl] | 0x0034 |  |
+| [PLL_SOFT_CNT_DONE #aonapb_regs_pll_soft_cnt_done] | 0x0038 |  |
+| [DCXO_LC_REG0 #aonapb_regs_dcxo_lc_reg0] | 0x003c |  |
+| [DCXO_LC_REG1 #aonapb_regs_dcxo_lc_reg1] | 0x0040 |  |
+| [MPLL_CFG1 #aonapb_regs_mpll_cfg1] | 0x0044 |  |
+| [MPLL_CFG2 #aonapb_regs_mpll_cfg2] | 0x0048 |  |
+| [DPLL_CFG1 #aonapb_regs_dpll_cfg1] | 0x004c |  |
+| [DPLL_CFG2 #aonapb_regs_dpll_cfg2] | 0x0050 |  |
+| [TWPLL_CFG1 #aonapb_regs_twpll_cfg1] | 0x0054 |  |
+| [TWPLL_CFG2 #aonapb_regs_twpll_cfg2] | 0x0058 |  |
+| [LTEPLL_CFG1 #aonapb_regs_ltepll_cfg1] | 0x005c |  |
+| [LTEPLL_CFG2 #aonapb_regs_ltepll_cfg2] | 0x0060 |  |
+| [LVDSDISPLL_CFG1 #aonapb_regs_lvdsdispll_cfg1] | 0x0064 |  |
+| [LVDSDISPLL_CFG2 #aonapb_regs_lvdsdispll_cfg2] | 0x0068 |  |
+| [AON_REG_PROT #aonapb_regs_aon_reg_prot] | 0x006c | Protect register (big endian) |
+| [LDSP_BOOT_EN #aonapb_regs_ldsp_boot_en] | 0x0070 | DSP boot enable |
+| [LDSP_BOOT_VEC #aonapb_regs_ldsp_boot_vec] | 0x0074 | DSP boot vector |
+| [LDSP_RST #aonapb_regs_ldsp_rst] | 0x0078 | DSP reset |
+| [LDSP_MTX_CTRL1 #aonapb_regs_ldsp_mtx_ctrl1] | 0x007c |  |
+| [LDSP_MTX_CTRL2 #aonapb_regs_ldsp_mtx_ctrl2] | 0x0080 |  |
+| [LDSP_MTX_CTRL3 #aonapb_regs_ldsp_mtx_ctrl3] | 0x0084 |  |
+| [AON_CGM_CFG #aonapb_regs_aon_cgm_cfg] | 0x0088 |  |
+| [LACC_MTX_CTRL #aonapb_regs_lacc_mtx_ctrl] | 0x008c |  |
+| [CORTEX_MTX_CTRL1 #aonapb_regs_cortex_mtx_ctrl1] | 0x0090 |  |
+| [CORTEX_MTX_CTRL2 #aonapb_regs_cortex_mtx_ctrl2] | 0x0094 |  |
+| [CORTEX_MTX_CTRL3 #aonapb_regs_cortex_mtx_ctrl3] | 0x0098 |  |
+| [CA5_TCLK_DLY_LEN #aonapb_regs_ca5_tclk_dly_len] | 0x009c |  |
+| ? | 0x00b4 | Mystery register used by ROM code. |
+| [AON_CHIP_ID_H #aonapb_regs_aon_chip_id_h] | 0x00f8 |  |
+| [AON_CHIP_ID_L #aonapb_regs_aon_chip_id_l] | 0x00fc |  |
+| [CCIR_RCVR_CFG #aonapb_regs_ccir_rcvr_cfg] | 0x0100 |  |
+| [PLL_BG_CFG #aonapb_regs_pll_bg_cfg] | 0x0108 |  |
+| [LVDSDIS_SEL #aonapb_regs_lvdsdis_sel] | 0x010c |  |
+| [DJTAG_MUX_SEL #aonapb_regs_djtag_mux_sel] | 0x0110 |  |
+| [ARM7_SYS_SOFT_RST #aonapb_regs_arm7_sys_soft_rst] | 0x0114 |  |
+| [CP1_CP0_ADDR_MSB #aonapb_regs_cp1_cp0_addr_msb] | 0x0118 |  |
+| [AON_DMA_INT_EN #aonapb_regs_aon_dma_int_en] | 0x011c |  |
+| [EMC_AUTO_GATE_EN #aonapb_regs_emc_auto_gate_en] | 0x0120 |  |
+| [ARM7_CFG_BUS #aonapb_regs_arm7_cfg_bus] | 0x0124 |  |
+| [RTC4M_0_CFG #aonapb_regs_rtc4m_0_cfg] | 0x0128 |  |
+| [RTC4M_1_CFG #aonapb_regs_rtc4m_1_cfg] | 0x012c |  |
+| [APB_RST2 #aonapb_regs_apb_rst2] | 0x0130 |  |
+| [AP_WPROT_EN1 #aonapb_regs_ap_wprot_en1] | 0x3004 |  |
+| [CP0_WPROT_EN1 #aonapb_regs_cp0_wprot_en1] | 0x3008 |  |
+| [CP1_WPROT_EN1 #aonapb_regs_cp1_wprot_en1] | 0x300c |  |
+| [IO_DLY_CTRL #aonapb_regs_io_dly_ctrl] | 0x3014 |  |
+| [AP_WPROT_EN0 #aonapb_regs_ap_wprot_en0] | 0x3018 |  |
+| [CP0_WPROT_EN0 #aonapb_regs_cp0_wprot_en0] | 0x3020 |  |
+| [CP1_WPROT_EN0 #aonapb_regs_cp1_wprot_en0] | 0x3024 |  |
+| [PMU_RST_MONITOR #aonapb_regs_pmu_rst_monitor] | 0x302c |  |
+| [THM_RST_MONITOR #aonapb_regs_thm_rst_monitor] | 0x3030 |  |
+| [AP_RST_MONITOR #aonapb_regs_ap_rst_monitor] | 0x3034 |  |
+| [CA7_RST_MONITOR #aonapb_regs_ca7_rst_monitor] | 0x3038 |  |
+| [BOND_OPT0 #aonapb_regs_bond_opt0] | 0x303c |  |
+| [BOND_OPT1 #aonapb_regs_bond_opt1] | 0x3040 |  |
+| [RES_REG0 #aonapb_regs_res_reg0] | 0x3044 |  |
+| [RES_REG1 #aonapb_regs_res_reg1] | 0x3048 |  |
+| [AON_QOS_CFG #aonapb_regs_aon_qos_cfg] | 0x304c |  |
+| [BB_LDO_CAL_START #aonapb_regs_bb_ldo_cal_start] | 0x3050 |  |
+| [AON_MTX_PROT_CFG #aonapb_regs_aon_mtx_prot_cfg] | 0x3058 |  |
+| [LVDS_CFG #aonapb_regs_lvds_cfg] | 0x3060 |  |
+| [PLL_LOCK_OUT_SEL #aonapb_regs_pll_lock_out_sel] | 0x3064 |  |
+| [RTC4M_RC_VAL #aonapb_regs_rtc4m_rc_val] | 0x3068 |  |
+| [AON_APB_RSV #aonapb_regs_aon_apb_rsv] | 0x30f0 |  |
+
+=== APB_EB0 (0x402e0000) ===[aonapb_regs_apb_eb0]
+
+|| Symbol | Bit range | R/W | Description ||
+| I2C_EB | 31 | RW |  |
+| CA7_DAP_EB | 30 | RW |  |
+| CA7_TS1_EB | 29 | RW |  |
+| CA7_TS0_EB | 28 | RW |  |
+| GPU_EB | 27 | RW |  |
+| AON_CKG_EB | 26 | RW |  |
+| MM_EB | 25 | RW |  |
+| AP_WDG_EB | 24 | RW |  |
+| MSPI_EB | 23 | RW |  |
+| SPLK_EB | 22 | RW |  |
+| IPI_EB | 21 | RW |  |
+| PIN_EB | 20 | RW |  |
+| VBC_EB | 19 | RW |  |
+| AUD_EB | 18 | RW |  |
+| AUDIF_EB | 17 | RW |  |
+| ADI_EB | 16 | RW |  |
+| INTC_EB | 15 | RW |  |
+| EIC_EB | 14 | RW |  |
+| EFUSE_EB | 13 | RW |  |
+| AP_TMR0_EB | 12 | RW |  |
+| AON_TMR_EB | 11 | RW |  |
+| AP_SYST_EB | 10 | RW |  |
+| AON_SYST_EB | 9 | RW |  |
+| KPD_EB | 8 | RW |  |
+| PWM3_EB | 7 | RW |  |
+| PWM2_EB | 6 | RW |  |
+| PWM1_EB | 5 | RW |  |
+| PWM0_EB | 4 | RW |  |
+| GPIO_EB | 3 | RW |  |
+| TPC_EB | 2 | RW |  |
+| FM_EB | 1 | RW |  |
+| ADC_EB | 0 | RW |  |
+
+=== APB_EB1 (0x402e0004) ===[aonapb_regs_apb_eb1]
+
+|| Symbol | Bit range | R/W | Description ||
+| CODEC_EB | 28 | RW |  |
+| ORP_JTAG_EB | 27 | RW |  |
+| CA5_TS0_EB | 26 | RW |  |
+| DEF_EB | 25 | RW |  |
+| LVDS_PLL_DIV_EB | 24 | RW |  |
+| ARM7_JTAG_EB | 23 | RW |  |
+| AON_DMA_EB | 22 | RW |  |
+| MBOX_EB | 21 | RW |  |
+| DJTAG_EB | 20 | RW |  |
+| RTC4M1_CAL_EB | 19 | RW |  |
+| RTC4M0_CAL_EB | 18 | RW |  |
+| MDAR_EB | 17 | RW |  |
+| LVDS_TCXO_EB | 16 | RW |  |
+| LVDS_TRX_EB | 15 | RW |  |
+| CA5_DAP_EB | 14 | RW |  |
+| GSP_EMC_EB | 13 | RW |  |
+| ZIP_EMC_EB | 12 | RW |  |
+| DISP_EMC_EB | 11 | RW |  |
+| AP_TMR2_EB | 10 | RW |  |
+| AP_TMR1_EB | 9 | RW |  |
+| CA7_WDG_EB | 8 | RW |  |
+|  | 7 | RW |  |
+| AVS_EB | 6 | RW |  |
+| PROBE_EB | 5 | RW |  |
+| AUX2_EB | 4 | RW |  |
+| AUX1_EB | 3 | RW |  |
+| AUX0_EB | 2 | RW |  |
+| THM_EB | 1 | RW |  |
+| PMU_EB | 0 | RW |  |
+
+=== APB_RST0 (0x402e0008) ===[aonapb_regs_apb_rst0]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA5_TS0_SOFT_RST | 31 | RW |  |
+| I2C_SOFT_RST | 30 | RW |  |
+| CA7_TS1_SOFT_RST | 29 | RW |  |
+| CA7_TS0_SOFT_RST | 28 | RW |  |
+| DAP_MTX_SOFT_RST | 27 | RW |  |
+| MSPI1_SOFT_RST | 26 | RW |  |
+| MSPI0_SOFT_RST | 25 | RW |  |
+| SPLK_SOFT_RST | 24 | RW |  |
+| IPI_SOFT_RST | 23 | RW |  |
+| AON_CKG_SOFT_RST | 22 | RW |  |
+| PIN_SOFT_RST | 21 | RW |  |
+| VBC_SOFT_RST | 20 | RW |  |
+| AUD_SOFT_RST | 19 | RW |  |
+| AUDIF_SOFT_RST | 18 | RW |  |
+| ADI_SOFT_RST | 17 | RW |  |
+| INTC_SOFT_RST | 16 | RW |  |
+| EIC_SOFT_RST | 15 | RW |  |
+| EFUSE_SOFT_RST | 14 | RW |  |
+| AP_WDG_SOFT_RST | 13 | RW |  |
+| AP_TMR0_SOFT_RST | 12 | RW |  |
+| AON_TMR_SOFT_RST | 11 | RW |  |
+| AP_SYST_SOFT_RST | 10 | RW |  |
+| AON_SYST_SOFT_RST | 9 | RW |  |
+| KPD_SOFT_RST | 8 | RW |  |
+| PWM3_SOFT_RST | 7 | RW |  |
+| PWM2_SOFT_RST | 6 | RW |  |
+| PWM1_SOFT_RST | 5 | RW |  |
+| PWM0_SOFT_RST | 4 | RW |  |
+| GPIO_SOFT_RST | 3 | RW |  |
+| TPC_SOFT_RST | 2 | RW |  |
+| FM_SOFT_RST | 1 | RW |  |
+| ADC_SOFT_RST | 0 | RW |  |
+
+=== APB_RST1 (0x402e000c) ===[aonapb_regs_apb_rst1]
+
+|| Symbol | Bit range | R/W | Description ||
+| RTC4M_ANA_SOFT_RST | 31 | RW |  |
+| DEF_SLV_INT_SOFT_RST | 30 | RW |  |
+| DEF_SOFT_RST | 29 | RW |  |
+| ADC3_SOFT_RST | 28 | RW |  |
+| ADC2_SOFT_RST | 27 | RW |  |
+| ADC1_SOFT_RST | 26 | RW |  |
+| MBOX_SOFT_RST | 25 | RW |  |
+| xxx_SOFT_RST | 24 | RW |  |
+| RTC4M1_CAL_SOFT_RST | 23 | RW |  |
+| RTC4M0_CAL_SOFT_RST | 22 | RW |  |
+| LDSP_SYS_SOFT_RST | 21 | RW |  |
+| LCP_SYS_SOFT_RST | 20 | RW |  |
+| DAC3_SOFT_RST | 19 | RW |  |
+| DAC2_SOFT_RST | 18 | RW |  |
+| DAC1_SOFT_RST | 17 | RW |  |
+| ADC3_CAL_SOFT_RST | 16 | RW |  |
+| ADC2_CAL_SOFT_RST | 15 | RW |  |
+| ADC1_CAL_SOFT_RST | 14 | RW |  |
+| MDAR_SOFT_RST | 13 | RW |  |
+| LVDSDIS_SOFT_RST | 12 | RW |  |
+| BB_CAL_SOFT_RST | 11 | RW |  |
+| DCX0_LC_SOFT_RST | 10 | RW |  |
+| AP_TMR2_SOFT_RST | 9 | RW |  |
+| AP_TMR1_SOFT_RST | 8 | RW |  |
+| CA7_WDG_SOFT_RST | 7 | RW |  |
+| AON_DMA_SOFT_RST | 6 | RW |  |
+| AVS_SOFT_RST | 5 | RW |  |
+| DMC_PHY_SOFT_RST | 4 | RW |  |
+| GPU_THMA_SOFT_RST | 3 | RW |  |
+| ARM_THMA_SOFT_RST | 2 | RW |  |
+| THM_SOFT_RST | 1 | RW |  |
+| PMU_SOFT_RST | 0 | RW |  |
+
+=== APB_RTC_EB (0x402e0010) ===[aonapb_regs_apb_rtc_eb]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP0_LTE_EB | 19 | RW |  |
+| BB_CAL_RTC_EB | 18 | RW |  |
+| DCX0_LC_RTC_EB | 17 | RW |  |
+| AP_TMR2_RTC_EB | 16 | RW |  |
+| AP_TMR1_RTC_EB | 15 | RW |  |
+| GPU_THMA_RTC_AUTO_EN | 14 | RW |  |
+| ARM_THMA_RTC_AUTO_EN | 13 | RW |  |
+| GPU_THMA_RTC_EB | 12 | RW |  |
+| ARM_THMA_RTC_EB | 11 | RW |  |
+| THM_RTC_EB | 10 | RW |  |
+| CA7_WDG_RTC_EB | 9 | RW |  |
+| AP_WDG_RTC_EB | 8 | RW |  |
+| EIC_RTCDV5_EB | 7 | RW |  |
+| EIC_RTC_EB | 6 | RW |  |
+| AP_TMR0_RTC_EB | 5 | RW |  |
+| AON_TMR_RTC_EB | 4 | RW |  |
+| AP_SYST_RTC_EB | 3 | RW |  |
+| AON_SYST_RTC_EB | 2 | RW |  |
+| KPD_RTC_EB | 1 | RW |  |
+| ARCH_RTC_EB | 0 | RW |  |
+
+=== REC_26MHZ_BUF_CFG (0x402e0014) ===[aonapb_regs_rec_26mhz_buf_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PLL_PROBE_SEL | 13-8 | RW |  |
+| REC_26MHZ_1_CUR_SEL | 4 | RW |  |
+| REC_26MHZ_0_CUR_SEL | 0 | RW |  |
+
+=== SINDRV_CTRL (0x402e0018) ===[aonapb_regs_sindrv_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| SINDRV_LVL | 4-3 | RW |  |
+| SINDRV_CLIP_MODE | 2 | RW |  |
+| SINDRV_ENA_SQUARE | 1 | RW |  |
+| SINDRV_ENA | 0 | RW |  |
+
+=== ADA_SEL_CTRL (0x402e001c) ===[aonapb_regs_ada_sel_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| TW_MODE_SEL | 3 | RW |  |
+| WGADC_DIV_EN | 2 | RW |  |
+| AFCDAC_SYS_SEL | 1 | RW |  |
+| APCDAC_SYS_SEL | 0 | RW |  |
+
+=== VBC_CTRL (0x402e0020) ===[aonapb_regs_vbc_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| AUDIF_CKG_AUTO_EN | 20 | RW |  |
+| AUD_INT_SYS_SEL | 19-18 | RW |  |
+| VBC_AFIFO_INT_SYS_SEL | 17-16 | RW |  |
+| VBC_AD23_INT_SYS_SEL | 15-14 | RW |  |
+| VBC_AD01_INT_SYS_SEL | 13-12 | RW |  |
+| VBC_DA01_INT_SYS_SEL | 11-10 | RW |  |
+| VBC_AD23_DMA_SYS_SEL | 9-8 | RW |  |
+| VBC_AD01_DMA_SYS_SEL | 7-6 | RW |  |
+| VBC_DA01_DMA_SYS_SEL | 5-4 | RW |  |
+| VBC_INT_CP0_ARM_SEL | 3 | RW |  |
+| VBC_INT_CP1_ARM_SEL | 2 | RW |  |
+| VBC_DMA_CP0_ARM_SEL | 1 | RW |  |
+| VBC_DMA_CP1_ARM_SEL | 0 | RW |  |
+
+=== PWR_CTRL (0x402e0024) ===[aonapb_regs_pwr_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| HSIC_PLL_EN | 19 | RW |  |
+| HSIC_PHY_PD | 18 | RW |  |
+| HSIC_PS_PD_S | 17 | RW |  |
+| HSIC_PS_PD_L | 16 | RW |  |
+| MIPI_DSI_PS_PD_S | 15 | RW |  |
+| MIPI_DSI_PS_PD_L | 14 | RW |  |
+| MIPI_CSI_4LANE_PS_PD_S | 13 | RW |  |
+| MIPI_CSI_4LANE_PS_PD_L | 12 | RW |  |
+| MIPI_CSI_2LANE_PS_PD_S | 11 | RW |  |
+| MIPI_CSI_2LANE_PS_PD_L | 10 | RW |  |
+| CA7_TS1_STOP | 9 | RW |  |
+| CA7_TS0_STOP | 8 | RW |  |
+| EFUSE_BIST_PWR_ON | 3 | RW |  |
+| FORCE_DSI_PHY_SHUTDOWNZ | 2 | RW |  |
+| FORCE_CSI_PHY_SHUTDOWNZ | 1 | RW |  |
+| USB_PHY_PD | 0 | RW |  |
+
+=== TS_CFG (0x402e0028) ===[aonapb_regs_ts_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| CSYSACK_TS_LP_2 | 13 | RW |  |
+| CSYSREQ_TS_LP_2 | 12 | RW |  |
+| CSYSACK_TS_LP_1 | 11 | RW |  |
+| CSYSREQ_TS_LP_1 | 10 | RW |  |
+| CSYSACK_TS_LP_0 | 9 | RW |  |
+| CSYSREQ_TS_LP_0 | 8 | RW |  |
+| EVENTACK_RESTARTREQ_TS01 | 4 | RW |  |
+| EVENT_RESTARTREQ_TS01 | 1 | RW |  |
+| EVENT_HALTREQ_TS01 | 0 | RW |  |
+
+=== BOOT_MODE (0x402e002c) ===[aonapb_regs_boot_mode]
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM_JTAG_EN | 13 | RW |  |
+| WPLL_OVR_FREQ_SEL | 12 | RW |  |
+| PTEST_FUNC_ATSPEED_SEL | 8 | RW |  |
+| PTEST_FUNC_MODE | 7 | R |  |
+| USB_DLOAD_EN | 4 | R |  |
+| ARM_BOOT_MD3 | 3 | R |  |
+| ARM_BOOT_MD2 | 2 | R |  |
+| ARM_BOOT_MD1 | 1 | R |  |
+| ARM_BOOT_MD0 | 0 | R |  |
+
+=== BB_BG_CTRL (0x402e0030) ===[aonapb_regs_bb_bg_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| BB_CON_BG | 22 | RW |  |
+| BB_BG_RSV | 21-20 | RW |  |
+| BB_LDO_V | 19-16 | RW |  |
+| BB_BG_RBIAS_EN | 15 | RW |  |
+| BB_BG_IEXT_IB_EN | 14 | RW |  |
+| BB_LDO_REFCTRL | 13-12 | RW |  |
+| BB_LDO_AUTO_PD_EN | 11 | RW |  |
+| BB_LDO_SLP_PD_EN | 10 | RW |  |
+| BB_LDO_FORCE_ON | 9 | RW |  |
+| BB_LDO_FORCE_PD | 8 | RW |  |
+| BB_BG_AUTO_PD_EN | 3 | RW |  |
+| BB_BG_SLP_PD_EN | 2 | RW |  |
+| BB_BG_FORCE_ON | 1 | RW |  |
+| BB_BG_FORCE_PD | 0 | RW |  |
+
+=== CP_ARM_JTAG_CTRL (0x402e0034) ===[aonapb_regs_cp_arm_jtag_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP_ARM_JTAG_PIN_SEL | 2-0 | RW |  |
+
+=== PLL_SOFT_CNT_DONE (0x402e0038) ===[aonapb_regs_pll_soft_cnt_done]
+
+|| Symbol | Bit range | R/W | Description ||
+| RC1_SOFT_CNT_DONE | 13 | RW |  |
+| RC0_SOFT_CNT_DONE | 12 | RW |  |
+| XTLBUF1_SOFT_CNT_DONE | 9 | RW |  |
+| XTLBUF0_SOFT_CNT_DONE | 8 | RW |  |
+| LVDSPLL_SOFT_CNT_DONE | 4 | RW |  |
+| LPLL_SOFT_CNT_DONE | 3 | RW |  |
+| TWPLL_SOFT_CNT_DONE | 2 | RW |  |
+| DPLL_SOFT_CNT_DONE | 1 | RW |  |
+| MPLL_SOFT_CNT_DONE | 0 | RW |  |
+
+=== DCXO_LC_REG0 (0x402e003c) ===[aonapb_regs_dcxo_lc_reg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| DCXO_LC_FLAG | 8 | RW |  |
+| DCXO_LC_FLAG_CLR | 1 | RW |  |
+| DCXO_LC_CNT_CLR | 0 | RW |  |
+
+=== DCXO_LC_REG1 (0x402e0040) ===[aonapb_regs_dcxo_lc_reg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| DCXO_LC_CNT | 31-0 | RW |  |
+
+=== MPLL_CFG1 (0x402e0044) ===[aonapb_regs_mpll_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| MPLL_RES | 29-28 | RW |  |
+| MPLL_LOCK_DONE | 27 | RW |  |
+| MPLL_DIV_S | 26 | RW |  |
+| MPLL_MOD_EN | 25 | RW |  |
+| MPLL_SDM_EN | 24 | RW |  |
+| MPLL_LPF | 22-20 | RW |  |
+| MPLL_REFIN | 19-18 | RW |  |
+| MPLL_IBIAS | 17-16 | RW |  |
+| MPLL_N | 10-0 | RW |  |
+
+=== MPLL_CFG2 (0x402e0048) ===[aonapb_regs_mpll_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| MPLL_NINT | 29-24 | RW |  |
+| MPLL_KINT | 19-0 | RW |  |
+
+=== DPLL_CFG1 (0x402e004c) ===[aonapb_regs_dpll_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| DPLL_RES | 29-28 | RW |  |
+| DPLL_LOCK_DONE | 27 | RW |  |
+| DPLL_DIV_S | 26 | RW |  |
+| DPLL_MOD_EN | 25 | RW |  |
+| DPLL_SDM_EN | 24 | RW |  |
+| DPLL_LPF | 22-20 | RW |  |
+| DPLL_REFIN | 19-18 | RW |  |
+| DPLL_IBIAS | 17-16 | RW |  |
+| DPLL_N | 10-0 | RW |  |
+
+=== DPLL_CFG2 (0x402e0050) ===[aonapb_regs_dpll_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| DPLL_NINT | 29-24 | RW |  |
+| DPLL_KINT | 19-0 | RW |  |
+
+=== TWPLL_CFG1 (0x402e0054) ===[aonapb_regs_twpll_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| TWPLL_RES | 29-28 | RW |  |
+| TWPLL_LOCK_DONE | 27 | RW |  |
+| TWPLL_DIV_S | 26 | RW |  |
+| TWPLL_MOD_EN | 25 | RW |  |
+| TWPLL_SDM_EN | 24 | RW |  |
+| TWPLL_LPF | 22-20 | RW |  |
+| TWPLL_REFIN | 19-18 | RW |  |
+| TWPLL_IBIAS | 17-16 | RW |  |
+| TWPLL_N | 10-0 | RW |  |
+
+=== TWPLL_CFG2 (0x402e0058) ===[aonapb_regs_twpll_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| TWPLL_NINT | 29-24 | RW |  |
+| TWPLL_KINT | 19-0 | RW |  |
+
+=== LTEPLL_CFG1 (0x402e005c) ===[aonapb_regs_ltepll_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| LTEPLL_RES | 29-28 | RW |  |
+| LTEPLL_LOCK_DONE | 27 | RW |  |
+| LTEPLL_DIV_S | 26 | RW |  |
+| LTEPLL_MOD_EN | 25 | RW |  |
+| LTEPLL_SDM_EN | 24 | RW |  |
+| LTEPLL_LPF | 22-20 | RW |  |
+| LTEPLL_REFIN | 19-18 | RW |  |
+| LTEPLL_IBIAS | 17-16 | RW |  |
+| LTEPLL_N | 10-0 | RW |  |
+
+=== LTEPLL_CFG2 (0x402e0060) ===[aonapb_regs_ltepll_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| LTEPLL_NINT | 29-24 | RW |  |
+| LTEPLL_KINT | 19-0 | RW |  |
+
+=== LVDSDISPLL_CFG1 (0x402e0064) ===[aonapb_regs_lvdsdispll_cfg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDSDISPLL_RES | 29-28 | RW |  |
+| LVDSDISPLL_LOCK_DONE | 27 | RW |  |
+| LVDSDISPLL_DIV_S | 26 | RW |  |
+| LVDSDISPLL_MOD_EN | 25 | RW |  |
+| LVDSDISPLL_SDM_EN | 24 | RW |  |
+| LVDSDISPLL_LPF | 22-20 | RW |  |
+| LVDSDISPLL_REFIN | 19-18 | RW |  |
+| LVDSDISPLL_IBIAS | 17-16 | RW |  |
+| LVDSDISPLL_N | 10-0 | RW |  |
+
+=== LVDSDISPLL_CFG2 (0x402e0068) ===[aonapb_regs_lvdsdispll_cfg2]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDSDISPLL_NINT | 29-24 | RW |  |
+| LVDSDISPLL_KINT | 19-0 | RW |  |
+
+=== AON_REG_PROT (0x402e006c) ===[aonapb_regs_aon_reg_prot]
+
+Protect register (big endian)
+
+|| Symbol | Bit range | R/W | Description ||
+| LDSP_CTRL_PROT | 31 | RW |  |
+| REG_PROT_VAL | 15-0 | RW |  |
+
+=== LDSP_BOOT_EN (0x402e0070) ===[aonapb_regs_ldsp_boot_en]
+
+DSP boot enable
+
+|| Symbol | Bit range | R/W | Description ||
+| FRC_CLK_LDSP_EN | 1 | RW |  |
+| LDSP_BOOT_EN | 0 | RW |  |
+
+=== LDSP_BOOT_VEC (0x402e0074) ===[aonapb_regs_ldsp_boot_vec]
+
+DSP boot vector
+
+|| Symbol | Bit range | R/W | Description ||
+| LDSP_BOOT_VECTOR | 31-0 | RW |  |
+
+=== LDSP_RST (0x402e0078) ===[aonapb_regs_ldsp_rst]
+
+DSP reset
+
+|| Symbol | Bit range | R/W | Description ||
+| LDSP_SYS_SRST | 1 | RW |  |
+| LDSP_CORE_SRST_N | 0 | RW |  |
+
+=== LDSP_MTX_CTRL1 (0x402e007c) ===[aonapb_regs_ldsp_mtx_ctrl1]
+
+|| Symbol | Bit range | R/W | Description ||
+| LDSP_MTX_CTRL1 | 31-0 | RW |  |
+
+=== LDSP_MTX_CTRL2 (0x402e0080) ===[aonapb_regs_ldsp_mtx_ctrl2]
+
+|| Symbol | Bit range | R/W | Description ||
+| LDSP_MTX_CTRL2 | 31-0 | RW |  |
+
+=== LDSP_MTX_CTRL3 (0x402e0084) ===[aonapb_regs_ldsp_mtx_ctrl3]
+
+|| Symbol | Bit range | R/W | Description ||
+| LDSP_MTX_CTRL3 | 31-0 | RW |  |
+
+=== AON_CGM_CFG (0x402e0088) ===[aonapb_regs_aon_cgm_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PROBE_CKG_DIV | 31-28 | RW |  |
+| AUX2_CKG_DIV | 27-24 | RW |  |
+| AUX1_CKG_DIV | 23-20 | RW |  |
+| AUX0_CKG_DIV | 19-16 | RW |  |
+| PROBE_CKG_SEL | 15-12 | RW |  |
+| AUX2_CKG_SEL | 11-8 | RW |  |
+| AUX1_CKG_SEL | 7-4 | RW |  |
+| AUX0_CKG_SEL | 3-0 | RW |  |
+
+=== LACC_MTX_CTRL (0x402e008c) ===[aonapb_regs_lacc_mtx_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| LACC_MTX_CTRL | 31-0 | RW |  |
+
+=== CORTEX_MTX_CTRL1 (0x402e0090) ===[aonapb_regs_cortex_mtx_ctrl1]
+
+|| Symbol | Bit range | R/W | Description ||
+| CORTEX_MTX_CTRL1 | 31-0 | RW |  |
+
+=== CORTEX_MTX_CTRL2 (0x402e0094) ===[aonapb_regs_cortex_mtx_ctrl2]
+
+|| Symbol | Bit range | R/W | Description ||
+| CORTEX_MTX_CTRL2 | 31-0 | RW |  |
+
+=== CORTEX_MTX_CTRL3 (0x402e0098) ===[aonapb_regs_cortex_mtx_ctrl3]
+
+|| Symbol | Bit range | R/W | Description ||
+| CORTEX_MTX_CTRL3 | 15-0 | RW |  |
+
+=== CA5_TCLK_DLY_LEN (0x402e009c) ===[aonapb_regs_ca5_tclk_dly_len]
+
+|| Symbol | Bit range | R/W | Description ||
+| CA5_TCLK_DLY_LEN | 15-0 | RW |  |
+
+=== AON_CHIP_ID_H (0x402e00f8) ===[aonapb_regs_aon_chip_id_h]
+
+|| Symbol | Bit range | R/W | Description ||
+| AON_CHIP_ID_H | 31-0 | R | 0x53686172 ('Shar') |
+
+=== AON_CHIP_ID_L (0x402e00fc) ===[aonapb_regs_aon_chip_id_l]
+
+|| Symbol | Bit range | R/W | Description ||
+| AON_CHIP_ID_L | 31-0 | R | 0x6b4c5300 ('kLS\0') |
+
+=== CCIR_RCVR_CFG (0x402e0100) ===[aonapb_regs_ccir_rcvr_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| ANALOG_PLL_RSV | 23-16 | RW |  |
+| ANALOG_TESTMUX | 15-8 | RW |  |
+| CCIR_SE | 1 | RW |  |
+| CCIR_IE | 0 | RW |  |
+
+=== PLL_BG_CFG (0x402e0108) ===[aonapb_regs_pll_bg_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| PLL_BG_RSV | 5-4 | RW |  |
+| PLL_BG_RBIAS_EN | 3 | RW |  |
+| PLL_BG_PD | 2 | RW |  |
+| PLL_BG_IEXT_IBEN | 1 | RW |  |
+| PLL_CON_BG | 0 | RW |  |
+
+=== LVDSDIS_SEL (0x402e010c) ===[aonapb_regs_lvdsdis_sel]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDSDIS_LOG_SEL | 2-1 | RW |  |
+| LVDSDIS_DBG_SEL | 0 | RW |  |
+
+=== DJTAG_MUX_SEL (0x402e0110) ===[aonapb_regs_djtag_mux_sel]
+
+|| Symbol | Bit range | R/W | Description ||
+| DJTAG_CODEC_SEL | 7 | RW |  |
+| DJTAG_AON_SEL | 6 | RW |  |
+| DJTAG_PUB_SEL | 5 | RW |  |
+| DJTAG_CP1_SEL | 4 | RW |  |
+| DJTAG_CP0_SEL | 3 | RW |  |
+| DJTAG_GPU_SEL | 2 | RW |  |
+| DJTAG_MM_SEL | 1 | RW |  |
+| DJTAG_AP_SEL | 0 | RW |  |
+
+=== ARM7_SYS_SOFT_RST (0x402e0114) ===[aonapb_regs_arm7_sys_soft_rst]
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM7_SYS_SOFT_RST | 4 | RW |  |
+| ARM7_CORE_SOFT_RST | 0 | RW |  |
+
+=== CP1_CP0_ADDR_MSB (0x402e0118) ===[aonapb_regs_cp1_cp0_addr_msb]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP1_CP0_ADDR_MSB | 3-0 | RW |  |
+
+=== AON_DMA_INT_EN (0x402e011c) ===[aonapb_regs_aon_dma_int_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| AON_DMA_INT_ARM7_EN | 6 | RW |  |
+| AON_DMA_INT_CP1_DSP_EN | 5 | RW |  |
+| AON_DMA_INT_CP1_CA5_EN | 4 | RW |  |
+| AON_DMA_INT_CP0_DSP_1_EN | 3 | RW |  |
+| AON_DMA_INT_CP0_DSP_0_EN | 2 | RW |  |
+| AON_DMA_INT_CP0_ARM9_0_EN | 1 | RW |  |
+| AON_DMA_INT_AP_EN | 0 | RW |  |
+
+=== EMC_AUTO_GATE_EN (0x402e0120) ===[aonapb_regs_emc_auto_gate_en]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP1_PUB_AUTO_GATE_EN | 19 | RW |  |
+| CP0_PUB_AUTO_GATE_EN | 18 | RW |  |
+| AP_PUB_AUTO_GATE_EN | 17 | RW |  |
+| AON_APB_PUB_AUTO_GATE_EN | 16 | RW |  |
+| CP1_EMC_AUTO_GATE_EN | 3 | RW |  |
+| CP0_EMC_AUTO_GATE_EN | 2 | RW |  |
+| AP_EMC_AUTO_GATE_EN | 1 | RW |  |
+| CA7_EMC_AUTO_GATE_EN | 0 | RW |  |
+
+
+=== APB_ARM7_CFG_BUS (0x402e0124) ===[aonapb_regs_arm7_cfg_bus]
+
+|| Symbol | Bit range | R/W | Description ||
+| ARM7_CFG_BUS_SLEEP | 0 | RW |  |
+
+=== RTC4M_0_CFG (0x402e0128) ===[aonapb_regs_rtc4m_0_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| RTC4M0_RSV | 23-16 | RW |  |
+| RTC4M0_I_C | 11-8 | RW |  |
+| RTC4M0_CAL_DONE | 6 | RW |  |
+| RTC4M0_CAL_START | 5 | RW |  |
+| RTC4M0_CHOP_EN | 4 | RW |  |
+| RTC4M0_FORCE_EN | 1 | RW |  |
+| RTC4M0_AUTO_GATE_EN | 0 | RW |  |
+
+=== RTC4M_1_CFG (0x402e012c) ===[aonapb_regs_rtc4m_1_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| RTC4M1_RSV | 23-16 | RW |  |
+| RTC4M1_I_C | 11-8 | RW |  |
+| RTC4M1_CAL_DONE | 6 | RW |  |
+| RTC4M1_CAL_START | 5 | RW |  |
+| RTC4M1_CHOP_EN | 4 | RW |  |
+| RTC4M1_FORCE_EN | 1 | RW |  |
+| RTC4M1_AUTO_GATE_EN | 0 | RW |  |
+
+=== APB_RST2 (0x402e0130) ===[aonapb_regs_apb_rst2]
+
+|| Symbol | Bit range | R/W | Description ||
+| CODEC_DJTAG_SOFT_RST | 7 | RW |  |
+| AON_DJTAG_SOFT_RST | 6 | RW |  |
+| PUB_DJTAG_SOFT_RST | 5 | RW |  |
+| GPU_DJTAG_SOFT_RST | 4 | RW |  |
+| MM_DJTAG_SOFT_RST | 3 | RW |  |
+| CP1_DJTAG_SOFT_RST | 2 | RW |  |
+| CP0_DJTAG_SOFT_RST | 1 | RW |  |
+| AP_DJTAG_SOFT_RST | 0 | RW |  |
+
+=== AP_WPROT_EN1 (0x402e3004) ===[aonapb_regs_ap_wprot_en1]
+
+|| Symbol | Bit range | R/W | Description ||
+| AP_AWADDR_WPROT_EN1 | 31-0 | RW |  |
+
+=== CP0_WPROT_EN1 (0x402e3008) ===[aonapb_regs_cp0_wprot_en1]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP0_AWADDR_WPROT_EN1 | 31-0 | RW |  |
+
+=== CP1_WPROT_EN1 (0x402e300c) ===[aonapb_regs_cp1_wprot_en1]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP1_AWADDR_WPROT_EN1 | 31-0 | RW |  |
+
+=== IO_DLY_CTRL (0x402e3014) ===[aonapb_regs_io_dly_ctrl]
+
+|| Symbol | Bit range | R/W | Description ||
+| CLK_CCIR_DLY_SEL | 11-8 | RW |  |
+| CLK_CP1DSP_DLY_SEL | 7-4 | RW |  |
+| CLK_CP0DSP_DLY_SEL | 3-0 | RW |  |
+
+=== AP_WPROT_EN0 (0x402e3018) ===[aonapb_regs_ap_wprot_en0]
+
+|| Symbol | Bit range | R/W | Description ||
+| AP_AWADDR_WPROT_EN1 | 31-0 | RW |  |
+
+=== AP_WPROT_EN0 (0x402e3018) ===[aonapb_regs_ap_wprot_en0]
+
+|| Symbol | Bit range | R/W | Description ||
+| AP_AWADDR_WPROT_EN0 | 31-0 | RW |  |
+
+=== CP0_WPROT_EN0 (0x402e3020) ===[aonapb_regs_cp0_wprot_en0]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP0_AWADDR_WPROT_EN0 | 31-0 | RW |  |
+
+=== CP1_WPROT_EN0 (0x402e3024) ===[aonapb_regs_cp1_wprot_en0]
+
+|| Symbol | Bit range | R/W | Description ||
+| CP1_AWADDR_WPROT_EN0 | 31-0 | RW |  |
+
+=== PMU_RST_MONITOR (0x402e302c) ===[aonapb_regs_pmu_rst_monitor]
+
+|| Symbol | Bit range | R/W | Description ||
+| PMU_RST_MONITOR | 31-0 | RW |  |
+
+=== THM_RST_MONITOR (0x402e3030) ===[aonapb_regs_thm_rst_monitor]
+
+|| Symbol | Bit range | R/W | Description ||
+| THM_RST_MONITOR | 31-0 | RW |  |
+
+=== AP_RST_MONITOR (0x402e3034) ===[aonapb_regs_ap_rst_monitor]
+
+|| Symbol | Bit range | R/W | Description ||
+| AP_RST_MONITOR | 31-0 | RW |  |
+
+=== CA7_RST_MONITOR (0x402e3038) ===[aonapb_regs_ca7_rst_monitor]
+
+|| Symbol | Bit range | R/W | Description ||
+| AP_RST_MONITOR | 31-0 | RW |  |
+
+=== BOND_OPT0 (0x402e303c) ===[aonapb_regs_bond_opt0]
+
+|| Symbol | Bit range | R/W | Description ||
+| BOND_OPTION0 | 31-0 | RW |  |
+
+=== BOND_OPT1 (0x402e3040) ===[aonapb_regs_bond_opt1]
+
+|| Symbol | Bit range | R/W | Description ||
+| BOND_OPTION1 | 31-0 | RW |  |
+
+=== RES_REG0 (0x402e3044) ===[aonapb_regs_res_reg0]
+
+|| Symbol | Bit range | R/W | Description ||
+| RES_REG0 | 31-0 | RW |  |
+
+=== RES_REG1 (0x402e3048) ===[aonapb_regs_res_reg1]
+
+|| Symbol | Bit range | R/W | Description ||
+| RES_REG1 | 31-0 | RW |  |
+
+=== AON_QOS_CFG (0x402e304c) ===[aonapb_regs_aon_qos_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| QOS_R_GPU | 15-12 | RW |  |
+| QOS_W_GPU | 11-8 | RW |  |
+| QOS_R_GSP | 7-4 | RW |  |
+| QOS_W_GSP | 3-0 | RW |  |
+
+=== BB_LDO_CAL_START (0x402e3050) ===[aonapb_regs_bb_ldo_cal_start]
+
+|| Symbol | Bit range | R/W | Description ||
+| BB_LDO_CAL_START | 0 | RW |  |
+
+=== AON_MTX_PROT_CFG (0x402e3058) ===[aonapb_regs_aon_mtx_prot_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| HPROT_DMAW | 7-4 | RW |  |
+| HPROT_DMAR | 3-0 | RW |  |
+
+=== LVDS_CFG (0x402e3060) ===[aonapb_regs_lvds_cfg]
+
+|| Symbol | Bit range | R/W | Description ||
+| LVDSDIS_TXCLKDATA | 22-16 | RW |  |
+| LVDSDIS_TXCOM | 13-12 | RW |  |
+| LVDSDIS_TXSLEW | 11-10 | RW |  |
+| LVDSDIS_TXSW | 9-8 | RW |  |
+| LVDSDIS_TXRERSER | 7-3 | RW |  |
+| LVDSDIS_PRE_EMP | 2-1 | RW |  |
+| LVDSDIS_TXPD | 0 | RW |  |
+
+=== PLL_LOCK_OUT_SEL (0x402e3064) ===[aonapb_regs_pll_lock_out_sel]
+
+|| Symbol | Bit range | R/W | Description ||
+| SLEEP_PLLLOCK_SEL | 7 | RW |  |
+| PLL_LOCK_SEL | 6-4 | RW |  |
+| SLEEP_DBG_SEL | 3-0 | RW |  |
+
+=== RTC4M_RC_VAL (0x402e3068) ===[aonapb_regs_rtc4m_rc_val]
+
+|| Symbol | Bit range | R/W | Description ||
+| RTC4M1_RC_SEL | 31 | RW |  |
+| RTC4M1_RC_VAL | 24-16 | RW |  |
+| RTC4M0_RC_SEL | 15 | RW |  |
+| RTC4M0_RC_VAL | 8-0 | RW |  |
+
+=== AON_APB_RSV (0x402e30f0) ===[aonapb_regs_aon_apb_rsv]
+
+|| Symbol | Bit range | R/W | Description ||
+| AON_APB_RSV | 31-0 | RW |  |
+
+=== AON_CHIP_ID (0x402e30??) ===[aonapb_regs_aon_chip_id]
+
+|| Symbol | Bit range | R/W | Description ||
+| AON_CHIP_ID | 31-0 | RW |  |
+
+
+
